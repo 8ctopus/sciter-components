@@ -1,8 +1,7 @@
 <html
     window-resizable="true"
     window-width="400dip"
-    window-height="200dip"
-    window-origin="0px"
+    window-height="300dip"
 >
 <head>
 <title>sciter components demo</title>
@@ -22,6 +21,10 @@ checkbox {
     display: block;
 }
 
+widget {
+    prototype: Widget url('js/widget.js');
+}
+
 input[type='checkbox'] {
     margin-right: 0.4em;
 }
@@ -30,11 +33,20 @@ label {
     vertical-align: middle;
 }
 
+widget:expanded > h1 {
+  font-size: 30dip;
+}
+
+widget:collapsed > h1 {
+  font-size: 10dip;
+}
+
 </style>
 </head>
 <body>
     <hello user="8ctopus" />
     <checkbox id="left" label="left" />
     <checkbox id="right" label="right" />
+    <widget message="test" />
 </body>
 </html>
