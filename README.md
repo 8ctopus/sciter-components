@@ -35,13 +35,19 @@ JSX was directly integrated in sciter's javascript engine, while browser javascr
 
 ## components
 
+### basics
+
+[https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
+
 ### lifecycle
 
 Sciter out of the box provides three lifecycle methods:
 
-- `componentDidMount()` called when the element is attached to the DOM tree
-- `componentWillUnmount()` called when the element is deleted from the DOM tree
-- `componentUpdate(props)` call this method to update state of the element
+- `constructor(props,kids,parent)` called when DOM element is not attached to the DOM yet
+- `componentDidMount()` called once when element is attached to DOM tree
+- `componentWillUnmount()` called once immediately before removal from DOM tree
+- `componentUpdate(props)` call this method to update the state of the element
+- `render(props,kids)`
 
 ### events
 

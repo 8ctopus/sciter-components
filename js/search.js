@@ -14,7 +14,7 @@ export class Search extends Element {
      */
     render()
     {
-        console.log("search - render");
+        //console.log("search - render");
 
         const component = [
             <input|text />,
