@@ -2,6 +2,7 @@ export class Hello extends Element
 {
     componentDidMount()
     {
-        this.content(<h1>Hello world!</h1>);
+        var user = this.attributes["user"] || "?";
+        this.content(<h1>Hello {user}!</h1>);
     }
 }
