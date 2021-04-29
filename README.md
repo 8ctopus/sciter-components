@@ -27,7 +27,11 @@ JSX was directly integrated in sciter's javascript engine, while browser javascr
 
 ### rules
 
-- A JSX expression must have exactly one outermost element
+- A JSX expression must have exactly one outermost element or use an array
 - A multi-line JSX expression must be wrapped in parentheses
 - HTML elements must be properly closed, don't forget to close empty elements with `/>`
 - variables within JSX must be enclosed in `{ }`
+
+## Sublime Text JSX support
+
+    https://packagecontrol.io/packages/Babel
