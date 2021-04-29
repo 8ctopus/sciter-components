@@ -15,7 +15,13 @@ export class Counter extends Element
      */
     render()
     {
-        this.innerHTML = `<button>click me</button> clicked <span>${this.counter}</span> times`;
+        const component = `<button>click me</button> clicked <span>${this.counter}</span> times`;
+
+        // option 1
+        this.innerHTML = component;
+
+        // option 2
+        //this.content(component);
     }
 
     /**
