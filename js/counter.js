@@ -17,11 +17,11 @@ export class Counter extends Element
     {
         const component = `<button>click me</button> clicked <span>${this.counter}</span> times`;
 
-        // option 1
-        this.innerHTML = component;
+        // option 1 (preferred as it will process arrays)
+        this.content(component);
 
-        // option 2
-        //this.content(component);
+        // option 2 (raw assign without processing)
+        //this.innerHTML = component;
     }
 
     /**
