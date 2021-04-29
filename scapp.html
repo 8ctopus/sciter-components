@@ -12,17 +12,13 @@ body {
 }
 
 hello {
-    prototype: Hello url('js/hello.js');
+    prototype: hello url('js/hello.js');
     display: block;
 }
 
 checkbox {
-    prototype: Checkbox url('js/checkbox.js');
+    prototype: checkbox url('js/checkbox.js');
     display: block;
-}
-
-widget {
-    prototype: Widget url('js/widget.js');
 }
 
 input[type='checkbox'] {
@@ -33,12 +29,16 @@ label {
     vertical-align: middle;
 }
 
+widget {
+    prototype: widget url('js/widget.js');
+}
+
 widget:expanded > h1 {
-  font-size: 30dip;
+    font-size: 30dip;
 }
 
 widget:collapsed > h1 {
-  font-size: 10dip;
+    font-size: 10dip;
 }
 
 </style>
