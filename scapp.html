@@ -9,8 +9,7 @@
 <style>
 
 body {
-    text-align: center;
-    vertical-align: middle;
+    flow: vertical;
 }
 
 hello {
@@ -18,9 +17,24 @@ hello {
     display: block;
 }
 
+checkbox {
+    prototype: Checkbox url('js/checkbox.js');
+    display: block;
+}
+
+input[type='checkbox'] {
+    margin-right: 0.4em;
+}
+
+label {
+    vertical-align: middle;
+}
+
 </style>
 </head>
 <body>
     <hello user="8ctopus" />
+    <checkbox id="left" label="left" />
+    <checkbox id="right" label="right" />
 </body>
 </html>
