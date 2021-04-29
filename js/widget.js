@@ -1,4 +1,4 @@
-export class widget extends Element
+export class Widget extends Element
 {
     componentDidMount()
     {

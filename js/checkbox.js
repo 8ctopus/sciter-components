@@ -1,4 +1,4 @@
-export class checkbox extends Element
+export class Checkbox extends Element
 {
     componentDidMount()
     {

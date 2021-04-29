@@ -1,4 +1,4 @@
-export class hello extends Element
+export class Hello extends Element
 {
     componentDidMount()
     {
