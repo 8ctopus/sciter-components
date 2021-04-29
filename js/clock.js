@@ -28,7 +28,7 @@ export class Clock extends Element
 
         const component = (
             <div>
-                <h2>It is {this.time.toLocaleTimeString()}.</h2>
+                <h2>{this.time.toLocaleTimeString()}</h2>
             </div>
         );
 

@@ -17,6 +17,14 @@ export class Counter extends Element
     {
         const component = `<button>click me</button> clicked <span>${this.counter}</span> times`;
 
+        /*
+        does not work because the line must start and end with html tags!
+        const component = [
+            <button>click me</button>,
+            clicked <span>{this.counter}</span> times
+        ];
+        */
+
         // option 1 (preferred as it will process arrays)
         this.content(component);
 
