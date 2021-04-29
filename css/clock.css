@@ -1,0 +1,9 @@
+@set clock {
+    :root {
+        display: block;
+    }
+
+    h2 {
+        color: blue;
+    }
+}
