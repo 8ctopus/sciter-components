@@ -33,6 +33,15 @@ JSX was directly integrated in sciter's javascript engine, while browser javascr
 - JSX does not support “tail-less” HTML tags like: `<img>`, `<input>` or `<br>`, close them with ` />`
 - variables` within `JSX `must`be enclosed in `{ }`
 
+## component lifecycle
+
+Sciter out of the box provides three lifecycle methods:
+
+- `componentDidMount()` called when the element is attached to the DOM tree
+- `componentWillUnmount()` called when the element is deleted from the DOM tree
+- `componentUpdate(props)` call this method to update state of the element
+
 ## Sublime Text JSX support
 
     https://packagecontrol.io/packages/Babel
+

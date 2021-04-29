@@ -1,5 +1,8 @@
 export class Checkbox extends Element
 {
+    /**
+     * Called when element is attached to the DOM tree
+     */
     componentDidMount()
     {
         const id    = this.attributes["id"] || "?";
