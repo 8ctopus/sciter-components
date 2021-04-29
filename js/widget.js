@@ -7,11 +7,13 @@ export class Widget extends Element
     {
         const message = this.attributes["message"] || "?";
 
-        const component = [
-            <h1>{message}</h1>,
-            <button .expand>+</button>,
-            <button .collapse>-</button>,
-        ];
+        const component = (
+            <div #widget>
+                <h1>{message}</h1>
+                <button .expand>+</button>
+                <button .collapse>-</button>
+            </div>
+        );
 
         this.content(component);
     }

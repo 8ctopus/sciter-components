@@ -1,7 +1,7 @@
 <html
     window-resizable="true"
     window-width="400dip"
-    window-height="400dip"
+    window-height="450dip"
 >
 <head>
 <title>sciter components demo</title>
@@ -9,6 +9,21 @@
 
 body {
     flow: vertical;
+}
+
+@mixin BORDER {
+    border: 1dip solid gray;
+}
+
+body > * {
+    @BORDER;
+    border-top: none;
+
+    padding: 0.5em;
+}
+
+body > *:first-child {
+    @BORDER;
 }
 
 input[type='checkbox'] {
@@ -34,11 +49,20 @@ widget {
     display: block;
 }
 
-widget:expanded > h1 {
+div#widget {
+    flow: horizontal;
+    vertical-align: middle;
+}
+
+div#widget h1 {
+    margin-right: 0.5em;
+}
+
+widget:expanded h1 {
     font-size: 30dip;
 }
 
-widget:collapsed > h1 {
+widget:collapsed h1 {
     font-size: 10dip;
 }
 
