@@ -33,13 +33,28 @@ JSX was directly integrated in sciter's javascript engine, while browser javascr
 - JSX does not support “tail-less” HTML tags like: `<img>`, `<input>` or `<br>`, close them with ` />`
 - variables` within `JSX `must`be enclosed in `{ }`
 
-## component lifecycle
+## components
+
+### lifecycle
 
 Sciter out of the box provides three lifecycle methods:
 
 - `componentDidMount()` called when the element is attached to the DOM tree
 - `componentWillUnmount()` called when the element is deleted from the DOM tree
 - `componentUpdate(props)` call this method to update state of the element
+
+### events
+
+```
+["on eventname"](event) {}
+["on eventname at selector"](event, selectorElement) {}
+```
+
+Where:
+
+- `on ` marks the function as event handler
+- eventname is a name of event – either standard HTML’s one like click, input, focus, … or custom event name
+- ` at ` - [optional] signifies that selector will follow. selector is CSS selector of child element inside this element. When event handler will be triggered selectorElement argument of the function will get reference to the matching child that generated the event.
 
 ## Sublime Text JSX support
 
