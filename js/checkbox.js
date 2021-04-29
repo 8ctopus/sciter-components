@@ -5,13 +5,20 @@ export class checkbox extends Element
         const id    = this.attributes["id"] || "?";
         const label = this.attributes["label"] || "?";
 
-        const component = (
+        // option 1
+        const component1 = (
             <div>
                 <input type="checkbox" id="{id}" name="{id}"></input>
                 <label for="{id}">{label}</label>
             </div>
         );
 
-        this.content(component);
+        // option 2
+        const component2 = [
+            <input type="checkbox" id="{id}" name="{id}"></input>,
+            <label for="{id}">{label}</label>
+        ];
+
+        this.content(component2);
     }
 }
