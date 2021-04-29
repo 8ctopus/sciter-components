@@ -7,7 +7,7 @@ export class Clock extends Element
      */
     componentDidMount()
     {
-        console.log("clock - mount");
+        //console.log("clock - mount");
 
         this.render();
 
@@ -24,7 +24,7 @@ export class Clock extends Element
      */
     render()
     {
-        console.log("clock - render");
+        //console.log("clock - render");
 
         const component = (
             <div>
@@ -41,7 +41,7 @@ export class Clock extends Element
      */
     componentUpdate(props)
     {
-        console.log("clock - update");
+        //console.log("clock - update");
 
         this.time = props.time;
 
