@@ -34,4 +34,37 @@ export class PageControl extends Element
 
         this.content(component);
     }
+
+    /**
+     * Tabsheet header click event
+     */
+    ["on click at div.pagecontrol div.header > div"](event, control)
+    {
+        // get header
+        const header = control.parentElement;
+
+        // loop through header tabs
+        for (let child of header.children)
+            child.state.selected = false;
+
+        // select clicked header
+        control.state.selected = true;
+
+        // get pagecontrol
+        const pagecontrol = header.parentElement;
+
+        // get expanded tabsheet
+        let tabsheet = pagecontrol.querySelector("div.tabsheet:expanded");
+
+        // hide expanded tabsheet
+        tabsheet.state.expanded = false;
+
+        // get tabsheet to expand
+        const id = control.getAttribute("panel");
+
+        tabsheet = pagecontrol.$("div.tabsheet#" + id);
+
+        // expand tabsheet
+        tabsheet.state.expanded = true;
+    }
 }
