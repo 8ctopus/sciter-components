@@ -1,0 +1,89 @@
+@set pagecontrol {
+    :root {
+        display: block;
+    }
+
+    :root .pagecontrol {
+        behavior: tabs;
+
+        width: *;
+        height: *;
+
+        background: red;
+        overflow: hidden;
+    }
+
+    /* header for tabsheet caption */
+    .header {
+        flow: horizontal;
+        margin-bottom: -1px;
+        padding: 2px 2px 0 2px;
+    }
+
+    /* single tabsheet caption */
+    .header > [panel] {
+        margin-bottom: 1px;
+        /* not wider than max-intrinsic */
+        max-width: auto;
+        height: *;
+
+        padding: 3px 8px;
+
+        background-image: url(theme:tab-item-normal);
+        background-repeat: stretch;
+
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        white-space: nowrap;
+    }
+
+    .header > [panel]:hover {
+        background-image: url(theme:tab-item-hover);
+        transition: blend;
+    }
+
+    .header > [panel]:selected {
+        margin: -2px -2px -1px -2px;
+        padding: 4px 10px 5px 10px;
+        position: relative;
+
+        background-image: url(theme:tab-item-selected);
+    }
+
+    .header > [panel]:selected:hover {
+        background-image: url(theme:tab-item-selected);
+        transition: none;
+    }
+
+    .header > [panel]:selected:first-child,
+    .header > [panel]:selected:hover:first-child {
+        background-image: url(theme:tab-item-leftmost-selected);
+    }
+
+    /*
+    :root:focus .header [panel]:selected {
+        background-image: url(theme:tab-item-focused);
+    }
+    */
+
+    /* outline active tab content if we've gotten focus by tab */
+    :root:tab-focus > .header > [panel]:selected > * {
+        outline: 1px dotted invert;
+    }
+
+    /* tabsheets */
+    .tabsheet {
+        display: none;
+    }
+
+    .tabsheet:expanded {
+        display: block;
+
+        height: *;
+
+        padding: *;
+
+        background-image: url(theme:tab-panel);
+        background-repeat: stretch;
+    }
+}
