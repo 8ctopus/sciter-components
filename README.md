@@ -2,8 +2,6 @@
 
 This is a [sciter.js](https://sciter.com/) components demo app.
 
-    https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/
-
 ## get started
 
 - git clone the repository
