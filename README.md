@@ -64,4 +64,4 @@ where:
 
 ## Sublime Text JSX support
 
-    https://packagecontrol.io/packages/Babel
+[https://packagecontrol.io/packages/Babel](https://packagecontrol.io/packages/Babel)
