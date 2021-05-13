@@ -21,15 +21,17 @@ The components in this demo use JSX. JSX stands for JavaScript XML and it allows
 
 JSX was directly integrated in sciter's javascript engine, while browser javascript only support JSX by using the Babel compiler.
 
-[Sciter Reactor JSX](https://sciter.com/tutorials/reactor-jsx/)
-[Sciter's JSX official documentation](https://github.com/c-smile/quickjspp/blob/master/doc/jsx.md)
-
 ### rules
 
 - A JSX expression must have exactly one outermost element or use an array
 - A multi-line JSX expression must be wrapped in parentheses
 - JSX does not support “tail-less” HTML tags like: `<img>`, `<input>` or `<br>`, close them with ` />`
 - variables` within `JSX `must`be enclosed in `{ }`
+
+More rules and examples can be found here
+
+[Sciter Reactor JSX](https://sciter.com/tutorials/reactor-jsx/)
+[Sciter's JSX official documentation](https://github.com/c-smile/quickjspp/blob/master/doc/jsx.md)
 
 ## components
 
