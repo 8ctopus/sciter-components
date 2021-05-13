@@ -18,6 +18,7 @@ All controls except the `checkbox` and `pagecontrol` come from examples found on
 - start `inspector.exe`
 - inside the `scapp.exe` window click `CTRL + SHIFT + I` to connect to the inspector
 - click `CTRL + SHIFT + left click` to inspect an element
+- note: the clock component forces the DOM to refresh every second, remove the component if you want to inspect in peace.
 
 ## JSX
 
