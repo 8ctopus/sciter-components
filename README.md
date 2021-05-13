@@ -56,7 +56,7 @@ Sciter out of the box provides three lifecycle methods:
 ["on eventname at selector"](event, selectorElement) {}
 ```
 
-Where:
+where:
 
 - `on ` marks the function as event handler
 - eventname is a name of event – either standard HTML’s one like click, input, focus, … or custom event name
