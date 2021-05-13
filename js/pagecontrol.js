@@ -31,8 +31,10 @@ export class PageControl extends Element
         const tabsheets = tabs.map(function(i) {
             const expanded = (i == 1) ? true : false;
 
+            const html = "<p> <b>some</b> literal <i>HTML</i> </p>";
+
             return (
-                <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded}>
+                <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded} state-html={html}>
                     <p> tabsheet {i} content </p>
                 </div>
             );
