@@ -1,3 +1,7 @@
+// import functions from sciter libraries
+import * as sys from "@sys";
+import {encode,decode} from "@sciter";
+
 export class PageControl extends Element
 {
     /**
@@ -37,7 +41,19 @@ export class PageControl extends Element
 
             const expanded = (element.attributes["selected"] == "") ? true : false;
 
-            const html = element.innerHTML;
+            const src = element.attributes["src"] || null;
+
+            let html = "";
+
+            if (!src)
+                html = element.innerHTML;
+            else {
+                // read file
+                const buffer = sys.fs.$readfile(src);
+
+                // decode buffer
+                html = decode(buffer, "utf-8");
+            }
 
             return (
                 <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded} state-html={html}>
