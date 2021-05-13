@@ -13,22 +13,37 @@ export class PageControl extends Element
      */
     render()
     {
+        // get tabs
+        const str = this.attributes["tabs"] || "";
+
+        const tabs = str.split(",");
+
+        // create tab headers
+        let headers = tabs.map(function(i) {
+            let selected = (i == 1) ? "selected" : "";
+
+            return (
+                <div panel={"tabsheet-" + i} {selected}>tab {i}</div>
+            );
+        });
+
+        // create tabsheets
+        let tabsheets = tabs.map(function(i) {
+            let expanded = (i == 1) ? "expanded" : "";
+
+            return (
+                <div .tabsheet id={"tabsheet-" + i} {expanded}>
+                    <p> tabsheet {i} content </p>
+                </div>
+            );
+        });
+
         const component = (
             <div .pagecontrol styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
                 <div .header>
-                    <div panel="tabsheet-id1">first tab</div>
-                    <div panel="tabsheet-id2" selected>second tab</div>
-                    <div panel="tabsheet-id3">third tab</div>
+                    {headers}
                 </div>
-                <div .tabsheet #tabsheet-id1>
-                    <p> first tabsheet content </p>
-                </div>
-                <div .tabsheet #tabsheet-id2 expanded>
-                    <p> second tabsheet content </p>
-                </div>
-                <div .tabsheet #tabsheet-id3>
-                    <p> third tabsheet content </p>
-                </div>
+                {tabsheets}
             </div>
         );
 
@@ -56,15 +71,23 @@ export class PageControl extends Element
         // get expanded tabsheet
         let tabsheet = pagecontrol.querySelector("div.tabsheet:expanded");
 
-        // hide expanded tabsheet
-        tabsheet.state.expanded = false;
+        if (tabsheet != null)
+            // hide expanded tabsheet
+            tabsheet.state.expanded = false;
+        else
+            console.error("tabsheet element does not exist");
 
         // get tabsheet to expand
         const id = control.getAttribute("panel");
 
-        tabsheet = pagecontrol.$("div.tabsheet#" + id);
+        console.log(id);
 
-        // expand tabsheet
-        tabsheet.state.expanded = true;
+        tabsheet = pagecontrol.$("#" + id);
+
+        if (tabsheet != null)
+            // expand tabsheet
+            tabsheet.state.expanded = true;
+        else
+            console.error("tabsheet element does not exist");
     }
 }
