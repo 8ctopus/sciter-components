@@ -1,6 +1,6 @@
-# sciter components demo app
+# sciter components
 
-This is a [sciter.js](https://sciter.com/) components demo app.
+This is a [sciter.js](https://sciter.com/) components demo.
 
 It explores how to build components using Reactor which is Sciter's equivalent to [ReactJS](https://reactjs.org/).
 
