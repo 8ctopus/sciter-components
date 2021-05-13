@@ -30,8 +30,8 @@ JSX was directly integrated in sciter's javascript engine, while browser javascr
 
 More rules and examples can be found here
 
-[Sciter Reactor JSX](https://sciter.com/tutorials/reactor-jsx/)
-[Sciter's JSX official documentation](https://github.com/c-smile/quickjspp/blob/master/doc/jsx.md)
+- [Sciter Reactor JSX](https://sciter.com/tutorials/reactor-jsx/)
+- [Sciter JSX official documentation](https://github.com/c-smile/quickjspp/blob/master/doc/jsx.md)
 
 ## components
 
