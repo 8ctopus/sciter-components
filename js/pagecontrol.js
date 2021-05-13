@@ -14,28 +14,33 @@ export class PageControl extends Element
     render()
     {
         // get tabs
-        const str = this.attributes["tabs"] || "";
-
-        const tabs = str.split(",");
+        const tabs = this.$$("tab");
 
         // create tab headers
-        const headers = tabs.map(function(i) {
-            const selected = (i == 1) ? true : false;
+        const headers = tabs.map(function(element, i) {
+            i++;
+
+            // get header caption
+            const caption = element.attributes["caption"];
+
+            // get header selected
+            const selected = (element.attributes["selected"] == "") ? true : false;
 
             return (
-                <div panel={"tabsheet-" + i} state-selected={selected}>tab {i}</div>
+                <div panel={"tabsheet-" + i} state-selected={selected}>{caption}</div>
             );
         });
 
         // create tabsheets
-        const tabsheets = tabs.map(function(i) {
-            const expanded = (i == 1) ? true : false;
+        const tabsheets = tabs.map(function(element, i) {
+            i++;
 
-            const html = "<p> <b>some</b> literal <i>HTML</i> </p>";
+            const expanded = (element.attributes["selected"] == "") ? true : false;
+
+            const html = element.innerHTML;
 
             return (
                 <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded} state-html={html}>
-                    <p> tabsheet {i} content </p>
                 </div>
             );
         });
