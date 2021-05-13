@@ -83,7 +83,7 @@ export class PageControl extends Element
 
         console.log(id);
 
-        tabsheet = pagecontrol.$("#" + id);
+        tabsheet = pagecontrol.$("div.tabsheet#" + id);
 
         if (tabsheet != null)
             // expand tabsheet
