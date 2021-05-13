@@ -21,7 +21,7 @@ export class PageControl extends Element
             i++;
 
             // get header caption
-            const caption = element.attributes["caption"];
+            const caption = element.attributes["title"] || `tab ${i}`;
 
             // get header selected
             const selected = (element.attributes["selected"] == "") ? true : false;
