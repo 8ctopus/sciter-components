@@ -4,6 +4,8 @@ This is a [sciter.js](https://sciter.com/) components demo app.
 
 It explores how to build components using Reactor which is Sciter's equivalent to [ReactJS](https://reactjs.org/).
 
+All controls except the `pagecontrol` come from examples found on the sciter website.
+
 ## get started
 
 - git clone the repository
