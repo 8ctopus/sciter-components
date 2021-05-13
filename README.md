@@ -4,7 +4,7 @@ This is a [sciter.js](https://sciter.com/) components demo app.
 
 It explores how to build components using Reactor which is Sciter's equivalent to [ReactJS](https://reactjs.org/).
 
-All controls except the `pagecontrol` come from examples found on the sciter website.
+All controls except the `checkbox` and `pagecontrol` come from examples found on the sciter website.
 
 ## get started
 
@@ -27,10 +27,78 @@ JSX was directly integrated in sciter's javascript engine, while browser javascr
 
 ### rules
 
-- A JSX expression must have exactly one outermost element or use an array
 - A multi-line JSX expression must be wrapped in parentheses
+
+```jsx
+const component = (
+    <p> a paragraph </p>
+);
+```
+
+- A JSX expression must have exactly one outermost element or use an array
+
+```jsx
+// doesn't work
+const component = (
+    <p> first paragraph </p>
+    <p> second paragraph </p>
+);
+
+// works
+const component = (
+    <div>
+        <p> first paragraph </p>
+        <p> second paragraph </p>
+    </div>
+);
+
+// array alternative that works
+const component = [
+    <p> first paragraph </p>,
+    <p> second paragraph </p>
+];
+```
+
 - JSX does not support “tail-less” HTML tags like: `<img>`, `<input>` or `<br>`, close them with ` />`
-- variables` within `JSX `must`be enclosed in `{ }`
+
+```jsx
+// doesn't work
+<input type="checkbox">
+
+// works
+<input type="checkbox" />
+```
+
+- variables inside JSX expressions must be enclosed in `{ }`
+- JSX doesn't support variable interpolation inside an attribute value
+
+```jsx
+// doesn't work
+<input type="checkbox" id="{id}" name="{id}" />
+
+// works
+<input type="checkbox" id={id} name={id} />
+```
+
+- specify state with `state-`
+
+```jsx
+const component = 
+  <div state-selected={ selected } />
+```
+
+- specify component value
+
+```jsx
+<checkbox state-value="checked" />
+```
+
+- adding literal html content
+
+```jsx
+const html = "<b>some</b> literal <i>HTML</i>";
+<div state-html={html} />
+```
 
 More rules and examples can be found here
 
