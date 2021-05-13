@@ -43,11 +43,11 @@ JSX was directly integrated in sciter's javascript engine, while browser javascr
 
 Sciter out of the box provides three lifecycle methods:
 
-- `constructor(props,kids,parent)` called when DOM element is not attached to the DOM yet
+- `constructor()` called when DOM element is not attached to the DOM yet
 - `componentDidMount()` called once when element is attached to DOM tree
 - `componentWillUnmount()` called once immediately before removal from DOM tree
 - `componentUpdate(props)` call this method to update the state of the element
-- `render(props,kids)`
+- `render()`
 
 ### events
 
@@ -65,4 +65,3 @@ Where:
 ## Sublime Text JSX support
 
     https://packagecontrol.io/packages/Babel
-
