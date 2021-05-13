@@ -55,7 +55,7 @@ export class PageControl extends Element
                 // decode buffer
                 html = decode(buffer, "utf-8");
 
-                // search html for css style
+                // search file for css style
                 const matches = html.match(/<style>([^<]*?)<\/style>/);
 
                 if (matches != null) {
@@ -63,17 +63,19 @@ export class PageControl extends Element
                     html = html.replace(matches[0], "");
 
                     // get style
-                    let style = matches[1];
+                    const style = matches[1];
 
                     // set styleset name
-                    stylesetname = "tabsheet-" + i;
+                    stylesetname = `tabsheet-${i}`;
 
                     // create styleset
-                    let styleset = "@set " + stylesetname + " { " + style + "}";
+                    let styleset = `@set ${stylesetname} { ${style} }`;
 
-                    document.head.insertAdjacentHTML("beforeend", "<style>" + styleset + "</style>");
+                    // inject styleset in head
+                    document.head.insertAdjacentHTML("beforeend", `<style> ${styleset} </style>`);
 
-                    stylesetname = "#" + stylesetname;
+                    // set styleset name for component
+                    stylesetname = `#${stylesetname}`;
                 }
             }
 
