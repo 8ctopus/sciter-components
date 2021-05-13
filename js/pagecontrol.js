@@ -19,8 +19,8 @@ export class PageControl extends Element
         const tabs = str.split(",");
 
         // create tab headers
-        let headers = tabs.map(function(i) {
-            let selected = (i == 1) ? true : false;
+        const headers = tabs.map(function(i) {
+            const selected = (i == 1) ? true : false;
 
             return (
                 <div panel={"tabsheet-" + i} state-selected={selected}>tab {i}</div>
@@ -28,8 +28,8 @@ export class PageControl extends Element
         });
 
         // create tabsheets
-        let tabsheets = tabs.map(function(i) {
-            let expanded = (i == 1) ? true : false;
+        const tabsheets = tabs.map(function(i) {
+            const expanded = (i == 1) ? true : false;
 
             return (
                 <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded}>
@@ -80,8 +80,6 @@ export class PageControl extends Element
 
         // get tabsheet to expand
         const id = control.getAttribute("panel");
-
-        console.log(id);
 
         tabsheet = pagecontrol.$("div.tabsheet#" + id);
 
