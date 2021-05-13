@@ -20,19 +20,19 @@ export class PageControl extends Element
 
         // create tab headers
         let headers = tabs.map(function(i) {
-            let selected = (i == 1) ? "selected" : "";
+            let selected = (i == 1) ? true : false;
 
             return (
-                <div panel={"tabsheet-" + i} {selected}>tab {i}</div>
+                <div panel={"tabsheet-" + i} state-selected={selected}>tab {i}</div>
             );
         });
 
         // create tabsheets
         let tabsheets = tabs.map(function(i) {
-            let expanded = (i == 1) ? "expanded" : "";
+            let expanded = (i == 1) ? true : false;
 
             return (
-                <div .tabsheet id={"tabsheet-" + i} {expanded}>
+                <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded}>
                     <p> tabsheet {i} content </p>
                 </div>
             );
