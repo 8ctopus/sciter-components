@@ -43,7 +43,8 @@ export class PageControl extends Element
 
             const src = element.attributes["src"] || null;
 
-            let html = "";
+            let html         = "";
+            let stylesetname = "";
 
             if (!src)
                 html = element.innerHTML;
@@ -53,11 +54,31 @@ export class PageControl extends Element
 
                 // decode buffer
                 html = decode(buffer, "utf-8");
+
+                // search html for css style
+                const matches = html.match(/<style>([^<]*?)<\/style>/);
+
+                if (matches != null) {
+                    // remove style from html
+                    html = html.replace(matches[0], "");
+
+                    // get style
+                    let style = matches[1];
+
+                    // set styleset name
+                    stylesetname = "tabsheet-" + i;
+
+                    // create styleset
+                    let styleset = "@set " + stylesetname + " { " + style + "}";
+
+                    document.head.insertAdjacentHTML("beforeend", "<style>" + styleset + "</style>");
+
+                    stylesetname = "#" + stylesetname;
+                }
             }
 
             return (
-                <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded} state-html={html}>
-                </div>
+                <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded} state-html={html} styleset={stylesetname} />
             );
         });
 
