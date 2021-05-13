@@ -38,7 +38,8 @@ export class PageControl extends Element
             );
         });
 
-        const component = (
+        // create pagecontrol
+        const pagecontrol = (
             <div .pagecontrol styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
                 <div .header>
                     {headers}
@@ -47,7 +48,7 @@ export class PageControl extends Element
             </div>
         );
 
-        this.content(component);
+        this.content(pagecontrol);
     }
 
     /**
