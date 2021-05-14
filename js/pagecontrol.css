@@ -1,3 +1,8 @@
+pagecontrol {
+    prototype: PageControl url('pagecontrol.js');
+    display: block;
+}
+
 @set pagecontrol {
     pagecontrol {
         behavior: tabs;
