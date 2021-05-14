@@ -269,7 +269,7 @@ export class PageControl extends Element
 
     /**
      * Show previous or next tab
-     * @param direction +1 next, -1 previous
+     * @param int +1 next, -1 previous
      * @return void
      */
     previousNextTab(direction)
@@ -290,6 +290,7 @@ export class PageControl extends Element
 
     /**
      * Toggle header visibility
+     * @return void
      */
     toggleHeader()
     {
