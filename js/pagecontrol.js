@@ -21,6 +21,34 @@ export class PageControl extends Element
         const tabs = this.$$("tab");
 
         // create tab headers
+        const headers = this.createHeaders();
+
+        // create tabsheets
+        const tabsheets = this.createTabsheets();
+
+        // create pagecontrol
+        const pagecontrol = (
+            <div .pagecontrol styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
+                <div .header>
+                    {headers}
+                </div>
+                {tabsheets}
+            </div>
+        );
+
+        this.content(pagecontrol);
+    }
+
+    /**
+     * Create headers
+     * @return JSX expression
+     */
+    createHeaders()
+    {
+        // get tabs
+        const tabs = this.$$("tab");
+
+        // create tab headers
         const headers = tabs.map(function(element, i) {
             i++;
 
@@ -34,6 +62,18 @@ export class PageControl extends Element
                 <div panel={"tabsheet-" + i} state-selected={selected}>{caption}</div>
             );
         });
+
+        return headers;
+    }
+
+    /**
+     * Create tabsheets
+     * @return JSX expression
+     */
+    createTabsheets()
+    {
+        // get tabs
+        const tabs = this.$$("tab");
 
         // create tabsheets
         const tabsheets = tabs.map(function(element, i) {
@@ -84,17 +124,7 @@ export class PageControl extends Element
             );
         });
 
-        // create pagecontrol
-        const pagecontrol = (
-            <div .pagecontrol styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
-                <div .header>
-                    {headers}
-                </div>
-                {tabsheets}
-            </div>
-        );
-
-        this.content(pagecontrol);
+        return tabsheets;
     }
 
     /**
