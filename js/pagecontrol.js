@@ -99,8 +99,10 @@ export class PageControl extends Element
 
     /**
      * Tabsheet header click event
+     * @param string event
+     * @param element clicked element
      */
-    ["on click at div.pagecontrol div.header > div"](event, control)
+    ["on click at div.pagecontrol div.header > div"](event, element)
     {
         // unselect all headers
         this.unselectHeaders();
@@ -109,14 +111,18 @@ export class PageControl extends Element
         this.collapseTabs();
 
         // select clicked header
-        control.state.selected = true;
+        element.state.selected = true;
 
         // get tabsheet to expand
-        const id = control.getAttribute("panel");
+        const id = element.getAttribute("panel");
 
         this.expandTab(id);
     }
 
+    /**
+     * Unselect all headers
+     * @return void
+     */
     unselectHeaders()
     {
         const header = this.$("div.header");
@@ -126,15 +132,24 @@ export class PageControl extends Element
             child.state.selected = false;
     }
 
+    /**
+     * Collapse all tabs
+     * @return void
+     */
     collapseTabs()
     {
-        let tabsheet = this.querySelector("div.tabsheet:expanded");
+        const tabsheet = this.querySelector("div.tabsheet:expanded");
 
         if (tabsheet != null)
             // hide expanded tabsheet
             tabsheet.state.expanded = false;
     }
 
+    /**
+     * Expand tab
+     * @param string tab id
+     * @return void
+     */
     expandTab(id)
     {
         let tabsheet = this.$("div.tabsheet#" + id);
