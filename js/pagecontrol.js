@@ -27,7 +27,7 @@ export class PageControl extends Element
         const tabsheets = this.createTabsheets();
 
         // header position
-        const position = this.attributes["position"] ?? "";
+        const position = this.attributes["header"] ?? "";
 
         let headersFirst = true;
         let classes      = "";
