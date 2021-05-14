@@ -21,7 +21,7 @@
     }
 
     /* single tabsheet caption */
-    .header > [panel] {
+    .header > div {
         margin-bottom: 1px;
         /* not wider than max-intrinsic */
         max-width: auto;
@@ -37,12 +37,12 @@
         white-space: nowrap;
     }
 
-    .header > [panel]:hover {
+    .header > div:hover {
         background-image: url(theme:tab-item-hover);
         transition: blend;
     }
 
-    .header > [panel]:selected {
+    .header > div:selected {
         margin: -2px -2px -1px -2px;
         padding: 4px 10px 5px 10px;
         position: relative;
@@ -50,24 +50,24 @@
         background-image: url(theme:tab-item-selected);
     }
 
-    .header > [panel]:selected:hover {
+    .header > div:selected:hover {
         background-image: url(theme:tab-item-selected);
         transition: none;
     }
 
-    .header > [panel]:selected:first-child,
-    .header > [panel]:selected:hover:first-child {
+    .header > div:selected:first-child,
+    .header > div:selected:hover:first-child {
         background-image: url(theme:tab-item-leftmost-selected);
     }
 
     /*
-    :root:focus .header [panel]:selected {
+    :root:focus .header div:selected {
         background-image: url(theme:tab-item-focused);
     }
     */
 
     /* outline active tab content if we've gotten focus by tab */
-    :root:tab-focus > .header > [panel]:selected > * {
+    :root:tab-focus > .header > div:selected > * {
         outline: 1px dotted invert;
     }
 
