@@ -1,15 +1,10 @@
 @set pagecontrol {
-    :root {
-        display: block;
-    }
-
-    :root .pagecontrol {
+    pagecontrol {
         behavior: tabs;
 
         width: *;
         height: *;
 
-        background: red;
         overflow: hidden;
     }
 
@@ -72,6 +67,9 @@
     }
 
     /* tabsheets */
+    .tabsheets {
+    }
+
     .tabsheet {
         display: none;
     }

@@ -28,11 +28,13 @@ export class PageControl extends Element
 
         // create pagecontrol
         const pagecontrol = (
-            <div .pagecontrol styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
+            <div styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
                 <div .header>
                     {headers}
                 </div>
-                {tabsheets}
+                <div .tabsheets>
+                    {tabsheets}
+                </div>
             </div>
         );
 
@@ -132,7 +134,7 @@ export class PageControl extends Element
      * @param string event
      * @param element clicked element
      */
-    ["on click at div.pagecontrol div.header > div"](event, element)
+    ["on click at pagecontrol div.header > div"](event, element)
     {
         // unselect all headers
         this.unselectHeaders();
