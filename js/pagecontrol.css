@@ -24,9 +24,14 @@ pagecontrol {
         padding: 2px 2px 0 2px;
     }
 
-    // tab header on the right or left
+    // header on the right or left
     :root.side > .header {
         flow: vertical;
+    }
+
+    // show / hide header
+    .hide {
+        display: none;
     }
 
     /* single tabsheet caption */

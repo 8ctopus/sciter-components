@@ -87,18 +87,21 @@ pagecontrol div#tabsheet-4 {
 </style>
 <script>
 
+let pagecontrol = document.$("pagecontrol");
+
 document.$("button#previous").on("click", function() {
-    let pagecontrol = document.$("pagecontrol");
     pagecontrol.previousTab();
 });
 
 document.$("button#next").on("click", function() {
-    let pagecontrol = document.$("pagecontrol");
     pagecontrol.nextTab();
 });
 
+document.$("button#toggle").on("click", function() {
+    pagecontrol.toggleHeader();
+});
+
 document.ready = function() {
-    let pagecontrol = document.$("pagecontrol");
     pagecontrol.setTab("tabsheet-3");
 };
 
@@ -113,7 +116,9 @@ document.ready = function() {
     <clock />
     <search />
     <div style="flow: horizontal">
-        <button #previous>Previous</button><button #next>Next</button>
+        <button #previous>Previous</button>
+        <button #next>Next</button>
+        <button #toggle>Show/hide header</button>
     </div>
     <pagecontrol header="right">
         <tab title="first tab">

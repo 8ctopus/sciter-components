@@ -287,4 +287,15 @@ export class PageControl extends Element
 
         this.setTab(next.attributes["panel"]);
     }
+
+    /**
+     * Toggle header visibility
+     */
+    toggleHeader()
+    {
+        // get header
+        const header = this.$("div.header");
+
+        header.classList.toggle("hide");
+    }
 }
