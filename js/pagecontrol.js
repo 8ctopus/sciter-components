@@ -1,3 +1,8 @@
+/**
+ * A simple pagecontrol component
+ * @author hello@octopuslabs.io
+ */
+
 // import functions from sciter libraries
 import * as sys from "@sys";
 import {encode,decode} from "@sciter";
@@ -262,6 +267,11 @@ export class PageControl extends Element
         this.previousNextTab(-1);
     }
 
+    /**
+     * Show previous or next tab
+     * @param direction +1 next, -1 previous
+     * @return void
+     */
     previousNextTab(direction)
     {
         // get selected header
