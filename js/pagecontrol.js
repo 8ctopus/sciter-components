@@ -102,32 +102,42 @@ export class PageControl extends Element
      */
     ["on click at div.pagecontrol div.header > div"](event, control)
     {
-        // get header
-        const header = control.parentElement;
+        // unselect all headers
+        this.unselectHeaders();
 
-        // loop through header tabs
-        for (let child of header.children)
-            child.state.selected = false;
+        // collapse all tabs
+        this.collapseTabs();
 
         // select clicked header
         control.state.selected = true;
 
-        // get pagecontrol
-        const pagecontrol = header.parentElement;
+        // get tabsheet to expand
+        const id = control.getAttribute("panel");
 
-        // get expanded tabsheet
-        let tabsheet = pagecontrol.querySelector("div.tabsheet:expanded");
+        this.expandTab(id);
+    }
+
+    unselectHeaders()
+    {
+        const header = this.$("div.header");
+
+        // loop through header tabs
+        for (let child of header.children)
+            child.state.selected = false;
+    }
+
+    collapseTabs()
+    {
+        let tabsheet = this.querySelector("div.tabsheet:expanded");
 
         if (tabsheet != null)
             // hide expanded tabsheet
             tabsheet.state.expanded = false;
-        else
-            console.error("tabsheet element does not exist");
+    }
 
-        // get tabsheet to expand
-        const id = control.getAttribute("panel");
-
-        tabsheet = pagecontrol.$("div.tabsheet#" + id);
+    expandTab(id)
+    {
+        let tabsheet = this.$("div.tabsheet#" + id);
 
         if (tabsheet != null)
             // expand tabsheet
