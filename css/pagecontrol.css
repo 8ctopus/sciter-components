@@ -4,8 +4,12 @@
 
         width: *;
         height: *;
-
         overflow: hidden;
+    }
+
+    // tab header on the right or left
+    :root.side {
+        flow: horizontal;
     }
 
     /* header for tabsheet caption */
@@ -13,6 +17,11 @@
         flow: horizontal;
         margin-bottom: -1px;
         padding: 2px 2px 0 2px;
+    }
+
+    // tab header on the right or left
+    :root.side > .header {
+        flow: vertical;
     }
 
     /* single tabsheet caption */
@@ -68,6 +77,8 @@
 
     /* tabsheets */
     .tabsheets {
+        width: *;
+        height: *;
     }
 
     .tabsheet {

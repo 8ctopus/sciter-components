@@ -26,15 +26,32 @@ export class PageControl extends Element
         // create tabsheets
         const tabsheets = this.createTabsheets();
 
+        // header position
+        const position = this.attributes["position"] ?? "";
+
+        let headersFirst = true;
+        let classes      = "";
+
+        switch (position) {
+            case "right":
+                headersFirst = false;
+                classes      = "side";
+                break;
+
+            case "bottom":
+                headersFirst = false;
+                break;
+
+            case "left":
+                classes = "side";
+                break;
+        }
+
         // create pagecontrol
         const pagecontrol = (
-            <div styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
-                <div .header>
-                    {headers}
-                </div>
-                <div .tabsheets>
-                    {tabsheets}
-                </div>
+            <div class={classes} styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
+                {headersFirst ? headers : tabsheets}
+                {headersFirst ? tabsheets : headers}
             </div>
         );
 
@@ -51,7 +68,7 @@ export class PageControl extends Element
         const tabs = this.$$("tab");
 
         // create headers
-        const headers = tabs.map(function(element, i) {
+        let headers = tabs.map(function(element, i) {
             i++;
 
             // get caption
@@ -64,6 +81,12 @@ export class PageControl extends Element
                 <div panel={"tabsheet-" + i} state-selected={selected}>{caption}</div>
             );
         });
+
+        headers = (
+            <div .header>
+                {headers}
+            </div>
+        );
 
         return headers;
     }
@@ -78,7 +101,7 @@ export class PageControl extends Element
         const tabs = this.$$("tab");
 
         // create tabsheets
-        const tabsheets = tabs.map(function(element, i) {
+        let tabsheets = tabs.map(function(element, i) {
             i++;
 
             const expanded = (element.attributes["selected"] == "") ? true : false;
@@ -125,6 +148,12 @@ export class PageControl extends Element
                 <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded} state-html={html} styleset={stylesetname} />
             );
         });
+
+        tabsheets = (
+            <div .tabsheets>
+                {tabsheets}
+            </div>
+        );
 
         return tabsheets;
     }
