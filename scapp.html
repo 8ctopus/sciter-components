@@ -92,6 +92,24 @@ pagecontrol div#tabsheet-4 {
 }
 
 </style>
+<script>
+
+document.$("button#previous").on("click", function() {
+    let pagecontrol = document.$("pagecontrol");
+    pagecontrol.previousTab();
+});
+
+document.$("button#next").on("click", function() {
+    let pagecontrol = document.$("pagecontrol");
+    pagecontrol.nextTab();
+});
+
+document.ready = function() {
+    let pagecontrol = document.$("pagecontrol");
+    pagecontrol.setTab("tabsheet-3");
+};
+
+</script>
 </head>
 <body>
     <hello user="8ctopus" />
@@ -101,6 +119,9 @@ pagecontrol div#tabsheet-4 {
     <counter />
     <clock />
     <search />
+    <div style="flow: horizontal">
+        <button #previous>Previous</button><button #next>Next</button>
+    </div>
     <pagecontrol>
         <tab title="first tab">
             <p> first tab content </p>

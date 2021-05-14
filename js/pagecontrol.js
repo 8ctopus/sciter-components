@@ -48,14 +48,14 @@ export class PageControl extends Element
         // get tabs
         const tabs = this.$$("tab");
 
-        // create tab headers
+        // create headers
         const headers = tabs.map(function(element, i) {
             i++;
 
-            // get header caption
+            // get caption
             const caption = element.attributes["title"] || `tab ${i}`;
 
-            // get header selected
+            // get selected
             const selected = (element.attributes["selected"] == "") ? true : false;
 
             return (
@@ -189,5 +189,61 @@ export class PageControl extends Element
             tabsheet.state.expanded = true;
         else
             console.error("tabsheet element does not exist");
+    }
+
+    /**
+     * Set tab by id
+     * @param string tab id
+     * @return void
+     */
+    setTab(id)
+    {
+        // unselect all headers
+        this.unselectHeaders();
+
+        // collapse all tabs
+        this.collapseTabs();
+
+        // expand tab
+        this.expandTab(id);
+
+        // select header
+        const header = this.$("div.header div[panel=" + id + "]");
+
+        header.state.selected = true;
+    }
+
+    /**
+     * Show next tab
+     * @return void
+     */
+    nextTab()
+    {
+        this.previousNextTab(+1);
+    }
+
+    /**
+     * Show previous tab
+     * @return void
+     */
+    previousTab()
+    {
+        this.previousNextTab(-1);
+    }
+
+    previousNextTab(direction)
+    {
+        // get selected header
+        const header = this.$("div.header div:selected");
+
+        let next = (direction == +1) ? header.nextElementSibling : header.previousElementSibling;
+
+        if (next == null) {
+            const parent = header.parentElement;
+
+            next = (direction == +1) ? parent.firstChild : parent.lastChild;
+        }
+
+        this.setTab(next.attributes["panel"]);
     }
 }
