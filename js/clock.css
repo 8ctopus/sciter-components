@@ -1,3 +1,8 @@
+clock {
+    prototype: Clock url('clock.js');
+    display: block;
+}
+
 @set clock {
     :root {
         display: block;
