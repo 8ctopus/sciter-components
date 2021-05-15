@@ -9,6 +9,11 @@ import {encode,decode} from "@sciter";
 
 export class PageControl extends Element
 {
+    constructor()
+    {
+        super();
+    }
+
     /**
      * Called when element is attached to the DOM tree
      */
