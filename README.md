@@ -6,6 +6,8 @@ It explores how to build components using Reactor which is Sciter's equivalent t
 
 All controls except the `checkbox` and `pagecontrol` come from examples found on the sciter website.
 
+![sciter components](screenshot.png)
+
 ## get started
 
 - git clone the repository
