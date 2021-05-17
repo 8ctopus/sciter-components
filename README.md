@@ -4,7 +4,7 @@ This is a [sciter.js](https://sciter.com/) components demo.
 
 It explores how to build components using Reactor which is Sciter's equivalent to [ReactJS](https://reactjs.org/).
 
-All controls except the `checkbox` and `pagecontrol` come from examples found on the sciter website.
+All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examples found on the sciter website and documentation.
 
 ![sciter components](screenshot.png)
 

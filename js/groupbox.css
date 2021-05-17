@@ -1,0 +1,20 @@
+groupbox {
+    prototype: GroupBox url('groupbox.js');
+    display: block;
+}
+
+@set groupbox {
+    :root {
+        width: max-content;
+        height: max-content;
+    }
+
+    legend {
+        margin-top: -2dip;
+
+        width: max-content;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        white-space: nowrap;
+    }
+}

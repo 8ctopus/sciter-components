@@ -1,7 +1,7 @@
 <html
     window-resizable="true"
     window-width="400dip"
-    window-height="760dip"
+    window-height="770dip"
 >
 <head>
 <title>sciter components demo</title>
@@ -77,8 +77,9 @@ search {
 }
 
 @import url('js/clock.css');
-@import url('js/pagecontrol.css');
 @import url('js/welcome.css');
+@import url('js/groupbox.css');
+@import url('js/pagecontrol.css');
 
 // custom skinning of fourth tabsheet
 pagecontrol div#tabsheet-4 {
@@ -117,6 +118,10 @@ document.ready = function() {
     <clock />
     <search />
     <welcomegroup />
+    <groupbox title="groupbox example">
+        <checkbox label="choice 1" />
+        <checkbox label="choice 2" />
+    </groupbox>
     <div style="flow: horizontal">
         <button #previous>Previous</button>
         <button #next>Next</button>
