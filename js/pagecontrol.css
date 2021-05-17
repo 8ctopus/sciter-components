@@ -1,3 +1,8 @@
+tab {
+    prototype: TabSheet url('pagecontrol.js');
+    display: block;
+}
+
 pagecontrol {
     prototype: PageControl url('pagecontrol.js');
     display: block;

@@ -7,10 +7,84 @@
 import * as sys from "@sys";
 import {encode,decode} from "@sciter";
 
+export class TabSheet extends Element
+{
+    constructor()
+    {
+        console.error("TabSheet::constructor");
+        super();
+    }
+
+    /**
+     * Called when element is attached to the DOM tree
+     */
+    componentDidMount()
+    {
+        console.log("TabSheet::componentDidMount");
+        this.render();
+    }
+
+    /**
+     * Render component
+     */
+    render()
+    {
+        console.log("TabSheet::render");
+        const expanded = (this.attributes["selected"] == "") ? true : false;
+
+        const src = this.attributes["src"] || null;
+
+        const i = this.elementIndex + 1;
+
+        let html         = "";
+        let stylesetname = "";
+
+        if (!src)
+            html = this.innerHTML;
+        else {
+            // read file
+            const buffer = sys.fs.$readfile(src);
+
+            // decode buffer
+            html = decode(buffer, "utf-8");
+
+            // search file for css style
+            const matches = html.match(/<style>([^<]*?)<\/style>/);
+
+            if (matches != null) {
+                // remove style from html
+                html = html.replace(matches[0], "");
+
+                // get style
+                const style = matches[1];
+
+                // set styleset name
+                stylesetname = `tabsheet-${i}`;
+
+                // create styleset
+                let styleset = `@set ${stylesetname} { ${style} }`;
+
+                // inject styleset in head
+                document.head.insertAdjacentHTML("beforeend", `<style> ${styleset} </style>`);
+
+                // set styleset name for component
+                stylesetname = `#${stylesetname}`;
+            }
+        }
+
+        const tabsheet = (
+            <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded} state-html={html} styleset={stylesetname} />
+        );
+
+        this.content(tabsheet);
+    }
+}
+
 export class PageControl extends Element
 {
     constructor()
     {
+        console.log("PageControl::constructor");
         super();
     }
 
@@ -27,8 +101,7 @@ export class PageControl extends Element
      */
     render()
     {
-        // get tabs
-        const tabs = this.$$("tab");
+        console.log("PageControl::render");
 
         // create tab headers
         const headers = this.createHeaders();
@@ -108,64 +181,11 @@ export class PageControl extends Element
     createTabsheets()
     {
         // get tabs
-        const tabs = this.$$("tab");
+        const tabs = this.innerHTML;
 
-        // create tabsheets
-        let tabsheets = tabs.map(function(element, i) {
-            i++;
-
-            const expanded = (element.attributes["selected"] == "") ? true : false;
-
-            const src = element.attributes["src"] || null;
-
-            let html         = "";
-            let stylesetname = "";
-
-            if (!src)
-                html = element.innerHTML;
-            else {
-                // read file
-                const buffer = sys.fs.$readfile(src);
-
-                // decode buffer
-                html = decode(buffer, "utf-8");
-
-                // search file for css style
-                const matches = html.match(/<style>([^<]*?)<\/style>/);
-
-                if (matches != null) {
-                    // remove style from html
-                    html = html.replace(matches[0], "");
-
-                    // get style
-                    const style = matches[1];
-
-                    // set styleset name
-                    stylesetname = `tabsheet-${i}`;
-
-                    // create styleset
-                    let styleset = `@set ${stylesetname} { ${style} }`;
-
-                    // inject styleset in head
-                    document.head.insertAdjacentHTML("beforeend", `<style> ${styleset} </style>`);
-
-                    // set styleset name for component
-                    stylesetname = `#${stylesetname}`;
-                }
-            }
-
-            return (
-                <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded} state-html={html} styleset={stylesetname} />
-            );
-        });
-
-        tabsheets = (
-            <div .tabsheets>
-                {tabsheets}
-            </div>
+        return (
+            <div .tabsheets state-html={tabs} />
         );
-
-        return tabsheets;
     }
 
     /**
