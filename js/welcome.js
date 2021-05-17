@@ -14,7 +14,7 @@ export class Welcome extends Element
         const name = this.attributes["name"] ?? "";
 
         const welcome = (
-            <h1>Hello, {name}!</h1>
+            <p>Hello, {name}!</p>
         );
 
         this.content(welcome);
