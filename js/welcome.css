@@ -1,0 +1,9 @@
+welcome {
+    prototype: Welcome url('welcome.js');
+    display: block;
+}
+
+welcomegroup {
+    prototype: WelcomeGroup url('welcome.js');
+    display: block;
+}
