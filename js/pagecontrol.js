@@ -11,7 +11,7 @@ export class TabSheet extends Element
 {
     constructor()
     {
-        console.error("TabSheet::constructor");
+        //console.error("TabSheet::constructor");
         super();
     }
 
@@ -20,7 +20,7 @@ export class TabSheet extends Element
      */
     componentDidMount()
     {
-        console.log("TabSheet::componentDidMount");
+        //console.log("TabSheet::componentDidMount");
         this.render();
     }
 
@@ -29,7 +29,7 @@ export class TabSheet extends Element
      */
     render()
     {
-        console.log("TabSheet::render");
+        //console.log("TabSheet::render");
         const expanded = (this.attributes["selected"] == "") ? true : false;
 
         const src = this.attributes["src"] || null;
@@ -84,7 +84,7 @@ export class PageControl extends Element
 {
     constructor()
     {
-        console.log("PageControl::constructor");
+        //console.log("PageControl::constructor");
         super();
     }
 
@@ -101,7 +101,7 @@ export class PageControl extends Element
      */
     render()
     {
-        console.log("PageControl::render");
+        //console.log("PageControl::render");
 
         // create tab headers
         const headers = this.createHeaders();
