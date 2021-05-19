@@ -8,7 +8,7 @@ pagecontrol {
     display: block;
 }
 
-@set pagecontrol {
+@set pagecontrol-base {
     pagecontrol {
         behavior: tabs;
 
@@ -110,4 +110,9 @@ pagecontrol {
         background-image: url(theme:tab-panel);
         background-repeat: stretch;
     }
+}
+
+// override base styles here
+@set pagecontrol < pagecontrol-base {
+
 }
