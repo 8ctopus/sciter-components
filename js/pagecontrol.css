@@ -83,6 +83,14 @@ pagecontrol {
         outline: 1dip dotted invert;
     }
 
+    /* header icon */
+    .header > div > i {
+        margin-right: 0.3em;
+        width: 1.6em;
+
+        text-align: center;
+    }
+
     /* tabsheets */
     div.tabsheets {
         size: *;

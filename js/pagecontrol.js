@@ -157,11 +157,17 @@ export class PageControl extends Element
             // get caption
             const caption = element.attributes["title"] || `tab ${i}`;
 
+            // get icon
+            let icon = element.attributes["icon"] || "";
+
+            if (icon != "")
+                icon = <i class={icon}></i>;
+
             // get selected
             const selected = (element.attributes["selected"] == "") ? true : false;
 
             return (
-                <div panel={"tabsheet-" + i} state-selected={selected}>{caption}</div>
+                <div panel={"tabsheet-" + i} state-selected={selected}>{icon}{caption}</div>
             );
         });
 
