@@ -6,14 +6,17 @@ tab {
 pagecontrol {
     prototype: PageControl url('pagecontrol.js');
     display: block;
+
 }
 
 @set pagecontrol-base {
-    pagecontrol {
+    :root {
         behavior: tabs;
 
-        size: *;
-        overflow: hidden;
+        width: 300dip;
+        height: max-content;
+
+//        border: 1dip solid blue;
     }
 
     // tab header on the right or left
@@ -22,7 +25,7 @@ pagecontrol {
     }
 
     /* header for tabsheet caption */
-    .header {
+    div.header {
         flow: horizontal;
     }
 
@@ -38,7 +41,7 @@ pagecontrol {
     }
 
     /* single tabsheet caption */
-    .header > div {
+    div.header > div {
         /* not wider than max-intrinsic */
         max-width: auto;
         height: max-content;
@@ -53,38 +56,38 @@ pagecontrol {
         white-space: nowrap;
     }
 
-    .header > div:hover {
+    div.header > div:hover {
         background-image: url(theme:tab-item-hover);
         transition: blend;
     }
 
-    .header > div:selected {
+    div.header > div:selected {
         background-image: url(theme:tab-item-selected);
     }
 
-    .header > div:selected:hover {
+    div.header > div:selected:hover {
         background-image: url(theme:tab-item-selected);
         transition: none;
     }
 
-    .header > div:selected:first-child,
-    .header > div:selected:hover:first-child {
+    div.header > div:selected:first-child,
+    div.header > div:selected:hover:first-child {
         background-image: url(theme:tab-item-leftmost-selected);
     }
 
     /*
-    :root:focus .header div:selected {
+    :root:focus div.header div:selected {
         background-image: url(theme:tab-item-focused);
     }
     */
 
     /* outline active tab content if we've gotten focus by tab */
-    :root:tab-focus > .header > div:selected > * {
+    :root:tab-focus > div.header > div:selected > * {
         outline: 1dip dotted invert;
     }
 
     /* header icon */
-    .header > div > i {
+    div.header > div > i {
         margin-right: 0.3em;
         width: 1.6em;
 
