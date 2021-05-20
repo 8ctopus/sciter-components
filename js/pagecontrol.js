@@ -41,6 +41,9 @@ export class TabSheet extends Element
 
         if (!src)
             html = this.innerHTML;
+        else
+        if (sys.fs.$lstat(src) == null)
+            console.error(`tab src does not exist ${src}`);
         else {
             // read file
             const buffer = sys.fs.$readfile(src);
