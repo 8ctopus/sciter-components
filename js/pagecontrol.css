@@ -3,7 +3,6 @@ tab {
     display: block;
 }
 
-
 pagecontrol {
     prototype: PageControl url('pagecontrol.js');
     display: block;
@@ -85,15 +84,15 @@ pagecontrol {
     }
 
     /* tabsheets */
-    .tabsheets {
+    div.tabsheets {
         size: *;
     }
 
-    .tabsheet {
+    div.tabsheet {
         display: none;
     }
 
-    .tabsheet:expanded {
+    div.tabsheet:expanded {
         display: block;
 
         height: *;
