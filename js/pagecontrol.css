@@ -3,6 +3,7 @@ tab {
     display: block;
 }
 
+
 pagecontrol {
     prototype: PageControl url('pagecontrol.js');
     display: block;
@@ -32,6 +33,7 @@ pagecontrol {
     // header on the right or left
     :root.side > .header {
         flow: vertical;
+        height: *;
     }
 
     // show / hide header
@@ -41,10 +43,9 @@ pagecontrol {
 
     /* single tabsheet caption */
     .header > div {
-        margin-bottom: 1px;
         /* not wider than max-intrinsic */
         max-width: auto;
-        height: *;
+        height: max-content;
 
         padding: 3px 8px;
 
@@ -62,9 +63,9 @@ pagecontrol {
     }
 
     .header > div:selected {
-        margin: -2px -2px -1px -2px;
-        padding: 4px 10px 5px 10px;
-        position: relative;
+//        margin: -2px -2px -1px -2px;
+//        padding: 4px 10px 5px 10px;
+//        position: relative;
 
         background-image: url(theme:tab-item-selected);
     }
@@ -92,8 +93,7 @@ pagecontrol {
 
     /* tabsheets */
     .tabsheets {
-        width: *;
-        height: *;
+        size: *;
     }
 
     .tabsheet {
@@ -104,8 +104,6 @@ pagecontrol {
         display: block;
 
         height: *;
-
-        padding: *;
 
         background-image: url(theme:tab-panel);
         background-repeat: stretch;
