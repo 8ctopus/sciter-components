@@ -49,7 +49,7 @@ export class TabSheet extends Element
             html = decode(buffer, "utf-8");
 
             // search file for css style
-            const matches = html.match(/<style>([^<]*?)<\/style>/);
+            let matches = html.match(/<style>([^<]*?)<\/style>/);
 
             if (matches != null) {
                 // remove style from html
@@ -72,6 +72,20 @@ export class TabSheet extends Element
 
                 // set styleset name for component
                 stylesetname = `#${stylesetname}`;
+            }
+
+            // search file for script
+            matches = html.match(/<script>([^<]*?)<\/script>/);
+
+            if (matches != null) {
+                // remove script from html
+                html = html.replace(matches[0], "");
+
+                // get script
+                const script = matches[1];
+
+                // execute tab script
+                eval(script);
             }
         }
 
