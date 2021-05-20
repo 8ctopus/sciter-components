@@ -11,7 +11,6 @@ export class TabSheet extends Element
 {
     constructor()
     {
-        //console.error("TabSheet::constructor");
         super();
     }
 
@@ -20,7 +19,6 @@ export class TabSheet extends Element
      */
     componentDidMount()
     {
-        //console.log("TabSheet::componentDidMount");
         this.render();
     }
 
@@ -29,7 +27,6 @@ export class TabSheet extends Element
      */
     render()
     {
-        //console.log("TabSheet::render");
         const expanded = (this.attributes["selected"] == "") ? true : false;
 
         const src = this.attributes["src"] || null;
@@ -61,8 +58,11 @@ export class TabSheet extends Element
                 // get style
                 const style = matches[1];
 
+                // get pagecontrol id
+                const id = this.parentElement.parentElement.id;
+
                 // set styleset name
-                stylesetname = `tabsheet-${i}`;
+                stylesetname = `${id}-tabsheet-${i}`;
 
                 // create styleset in order to inject tab style
                 let styleset = `@set ${stylesetname} { ${style} }`;
@@ -87,7 +87,6 @@ export class PageControl extends Element
 {
     constructor()
     {
-        //console.log("PageControl::constructor");
         super();
     }
 
@@ -104,8 +103,6 @@ export class PageControl extends Element
      */
     render()
     {
-        //console.log("PageControl::render");
-
         // create tab headers
         const headers = this.createHeaders();
 
@@ -133,9 +130,12 @@ export class PageControl extends Element
                 break;
         }
 
+        // avoid conflicts between tab stylesets when several pagecontrol exist
+        const id = this.attributes["id"] ?? "pagecontrol-" + this.elementIndex + 1;
+
         // create pagecontrol
         const pagecontrol = (
-            <div class={classes} styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
+            <div id={id} class={classes} styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
                 {headersFirst ? headers : tabsheets}
                 {headersFirst ? tabsheets : headers}
             </div>
