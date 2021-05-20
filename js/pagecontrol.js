@@ -64,7 +64,7 @@ export class TabSheet extends Element
                 // set styleset name
                 stylesetname = `tabsheet-${i}`;
 
-                // create styleset
+                // create styleset in order to inject tab style
                 let styleset = `@set ${stylesetname} { ${style} }`;
 
                 // inject styleset in head

@@ -1,6 +1,18 @@
 tab {
     prototype: TabSheet url('pagecontrol.js');
     display: block;
+
+    size: *;
+}
+
+div.tabsheet {
+    display: none;
+
+    size: *;
+}
+
+div.tabsheet:expanded {
+    display: block;
 }
 
 pagecontrol {
@@ -17,8 +29,6 @@ pagecontrol {
         behavior: tabs;
 
         size: *;
-
-//        border: 1dip solid blue;
     }
 
     /* tab header on the right or left */
@@ -101,20 +111,11 @@ pagecontrol {
 
     /* tabsheets */
     div.tabsheets {
+        flow: stack;
+
         size: *;
-    }
 
-    div.tabsheet {
-        display: none;
-    }
-
-    div.tabsheet:expanded {
-        display: block;
-
-        height: *;
-
-        background-image: url(theme:tab-panel);
-        background-repeat: stretch;
+        overflow: hidden;
     }
 }
 
