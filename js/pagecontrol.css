@@ -13,8 +13,7 @@ pagecontrol {
     pagecontrol {
         behavior: tabs;
 
-        width: *;
-        height: *;
+        size: *;
         overflow: hidden;
     }
 
@@ -26,8 +25,6 @@ pagecontrol {
     /* header for tabsheet caption */
     .header {
         flow: horizontal;
-        margin-bottom: -1px;
-        padding: 2px 2px 0 2px;
     }
 
     // header on the right or left
@@ -47,7 +44,7 @@ pagecontrol {
         max-width: auto;
         height: max-content;
 
-        padding: 3px 8px;
+        padding: 3dip 8dip;
 
         background-image: url(theme:tab-item-normal);
         background-repeat: stretch;
@@ -63,10 +60,6 @@ pagecontrol {
     }
 
     .header > div:selected {
-//        margin: -2px -2px -1px -2px;
-//        padding: 4px 10px 5px 10px;
-//        position: relative;
-
         background-image: url(theme:tab-item-selected);
     }
 
@@ -88,7 +81,7 @@ pagecontrol {
 
     /* outline active tab content if we've gotten focus by tab */
     :root:tab-focus > .header > div:selected > * {
-        outline: 1px dotted invert;
+        outline: 1dip dotted invert;
     }
 
     /* tabsheets */
