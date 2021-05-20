@@ -7,19 +7,21 @@ pagecontrol {
     prototype: PageControl url('pagecontrol.js');
     display: block;
 
+    /* default dimensions */
+    width: 300dip;
+    height: 100dip;
 }
 
 @set pagecontrol-base {
     :root {
         behavior: tabs;
 
-        width: 300dip;
-        height: max-content;
+        size: *;
 
 //        border: 1dip solid blue;
     }
 
-    // tab header on the right or left
+    /* tab header on the right or left */
     :root.side {
         flow: horizontal;
     }
@@ -27,6 +29,9 @@ pagecontrol {
     /* header for tabsheet caption */
     div.header {
         flow: horizontal;
+
+        /* show scrollbar when header to long */
+        overflow: auto;
     }
 
     // header on the right or left
