@@ -48,7 +48,7 @@ export class TabSheet extends Element
             // decode buffer
             html = decode(buffer, "utf-8");
 
-            // search file for css style
+            // search src for css style section
             let matches = html.match(/<style>([^<]*?)<\/style>/);
 
             if (matches != null) {
@@ -74,7 +74,7 @@ export class TabSheet extends Element
                 stylesetname = `#${stylesetname}`;
             }
 
-            // search file for script
+            // search src for script section
             matches = html.match(/<script>([^<]*?)<\/script>/);
 
             if (matches != null) {
