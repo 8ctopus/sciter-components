@@ -110,6 +110,8 @@ More rules and examples can be found here
 
 ## components
 
+Components javascript code is set to strict.
+
 ### basics
 
 [https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
