@@ -82,6 +82,12 @@ search {
 @import url('js/groupbox.css');
 @import url('js/pagecontrol.css');
 
+div#controls {
+    flow: horizontal;
+    border-spacing: 0.5em;
+    padding: 0.5em;
+}
+
 pagecontrol {
     size: *;
 }
@@ -109,7 +115,7 @@ document.$("button#toggle").on("click", function() {
 });
 
 document.ready = function() {
-    pagecontrol.setTab("tabsheet-3");
+    pagecontrol.setTab("tab-3");
 };
 
 </script>
@@ -127,17 +133,17 @@ document.ready = function() {
         <checkbox label="choice 1" />
         <checkbox label="choice 2" />
     </groupbox>
-    <div style="flow: horizontal">
-        <button #previous>Previous</button>
-        <button #next>Next</button>
+    <div #controls>
+        <button #previous>&lt;</button>
+        <button #next>&gt;</button>
         <button #toggle>Show/hide header</button>
     </div>
-    <pagecontrol header="right">
-        <tab title="first tab">
+    <pagecontrol #p1 header="top">
+        <tab title="first tab" icon="fas fa-star">
             <p> first tab content </p>
             <button> test </button>
         </tab>
-        <tab title="second tab" selected>
+        <tab title="second tab" icon="fas fa-bell" selected>
             <p> second tab content </p>
         </tab>
         <tab title="third tab">
@@ -146,9 +152,7 @@ document.ready = function() {
                 <b>some</b> literal <i>HTML</i>
             </p>
         </tab>
-        <tab>
-            <p> fourth tab content </p>
-        </tab>
+        <tab src="tab4.html" title="fourth tab" icon="fas fa-star" />
         <tab src="tab5.html" />
     </pagecontrol>
 </body>

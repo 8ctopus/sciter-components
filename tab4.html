@@ -19,13 +19,13 @@ document.on("showtab", this.selector("pagecontrol"), function(event, element) {
 
     console.log("Show tab - " + element.$("div.tabs tab#" + tabid).getAttribute("title"));
 
-    console.log(`tab5 js executed on ${element.id}`);
+    console.log(`tab4 js executed on ${element.id}`);
 });
 
 document.on("click", this.selector("both") + " button#hello", function() {
-    console.log(`tab5 button clicked!`);
+    console.log("tab4 button clicked!");
 });
 
 </script>
-<p> fifth tab content </p>
+<p> fourth tab content </p>
 <button #hello> hello </button>

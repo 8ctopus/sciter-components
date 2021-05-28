@@ -7,7 +7,7 @@
 import * as sys from "@sys";
 import {encode,decode} from "@sciter";
 
-export class TabSheet extends Element
+export class Tab extends Element
 {
     constructor()
     {
@@ -27,11 +27,11 @@ export class TabSheet extends Element
      */
     render()
     {
-        const expanded = (this.attributes["selected"] == "") ? true : false;
-
         const src = this.attributes["src"] || null;
+        const i   = this.elementIndex + 1;
 
-        const i = this.elementIndex + 1;
+        if (this.id == "")
+            this.setAttribute("id", `tab-${i}`);
 
         let html         = "";
         let stylesetname = "";
@@ -39,7 +39,7 @@ export class TabSheet extends Element
         if (!src)
             html = this.innerHTML;
         else
-        if (sys.fs.$lstat(src) == null)
+        if (!sys.fs.$lstat(src))
             console.error(`tab src does not exist ${src}`);
         else {
             // read file
@@ -59,10 +59,10 @@ export class TabSheet extends Element
                 const style = matches[1];
 
                 // get pagecontrol id
-                const id = this.parentElement.parentElement.id;
+                const id = this.getPageControl().id;
 
                 // set styleset name
-                stylesetname = `${id}-tabsheet-${i}`;
+                stylesetname = `${id}-` + this.id;
 
                 // create styleset in order to inject tab style
                 let styleset = `@set ${stylesetname} { ${style} }`;
@@ -89,11 +89,45 @@ export class TabSheet extends Element
             }
         }
 
-        const tabsheet = (
-            <div .tabsheet id={"tabsheet-" + i} state-expanded={expanded} state-html={html} styleset={stylesetname} />
+        const expanded = (this.attributes["selected"] == "") ? true : false;
+
+        // create tab
+        const tab = (
+            <div .tab id={this.id} state-expanded={expanded} state-html={html} styleset={stylesetname} />
         );
 
-        this.content(tabsheet);
+        this.content(tab);
+    }
+
+    /**
+     * Return parent pagecontrol
+     * @return DOM Element?
+     */
+    getPageControl()
+    {
+        return this.parentElement.parentElement;
+    }
+
+    /**
+     * Get selector
+     * @param string selector tab|pagecontrol|both
+     * @return string
+     */
+    selector(selector)
+    {
+        const tab         = "tab#" + this.id;
+        const pagecontrol = "pagecontrol#" + this.getPageControl().id;
+
+        if (selector == "tab")
+            return tab;
+        else
+        if (selector == "pagecontrol")
+            return pagecontrol;
+        else
+        if (selector == "both")
+            return pagecontrol + " " + tab;
+        else
+            console.error(`unknown selector ${selector}`);
     }
 }
 
@@ -120,8 +154,8 @@ export class PageControl extends Element
         // create tab headers
         const headers = this.createHeaders();
 
-        // create tabsheets
-        const tabsheets = this.createTabsheets();
+        // create tabs container
+        const tabs = this.createTabs();
 
         // header position
         const position = this.attributes["header"] ?? "";
@@ -150,8 +184,8 @@ export class PageControl extends Element
         // create pagecontrol
         const pagecontrol = (
             <div id={id} class={classes} styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
-                {headersFirst ? headers : tabsheets}
-                {headersFirst ? tabsheets : headers}
+                {headersFirst ? headers : tabs}
+                {headersFirst ? tabs : headers}
             </div>
         );
 
@@ -184,7 +218,7 @@ export class PageControl extends Element
             const selected = (element.attributes["selected"] == "") ? true : false;
 
             return (
-                <div panel={"tabsheet-" + i} state-selected={selected}>{icon}{caption}</div>
+                <div panel={"tab-" + i} state-selected={selected}>{icon}{caption}</div>
             );
         });
 
@@ -198,21 +232,21 @@ export class PageControl extends Element
     }
 
     /**
-     * Create tabsheets
+     * Create tabs
      * @return JSX expression
      */
-    createTabsheets()
+    createTabs()
     {
         // get tabs
         const tabs = this.innerHTML;
 
         return (
-            <div .tabsheets state-html={tabs} />
+            <div .tabs state-html={tabs} />
         );
     }
 
     /**
-     * Tabsheet header click event
+     * Tab header click event
      * @param string event
      * @param element clicked element
      */
@@ -221,16 +255,70 @@ export class PageControl extends Element
         // unselect all headers
         this.unselectHeaders();
 
-        // collapse all tabs
-        this.collapseTabs();
+        // collapse tab
+        this.collapseTab();
 
         // select clicked header
         element.state.selected = true;
 
-        // get tabsheet to expand
+        // get tab to expand
         const id = element.getAttribute("panel");
 
         this.expandTab(id);
+    }
+
+    /**
+     * Set tab by id
+     * @param string tab id
+     * @return void
+     */
+    setTab(id)
+    {
+        const selector = `div.header div[panel="${id}"]`;
+
+        if (!selector) {
+            console.error(`invalid tab id ${id}`);
+            return;
+        }
+
+        const header = this.$(selector);
+
+        // unselect all headers
+        this.unselectHeaders();
+
+        // collapse tab
+        this.collapseTab();
+
+        header.state.selected = true;
+
+        // expand tab
+        this.expandTab(id);
+    }
+
+    /**
+     * Expand tab
+     * @param string tab id
+     * @return void
+     */
+    expandTab(id)
+    {
+        const tab = this.$("div.tab#" + id);
+
+        if (!tab) {
+            console.error("tab does not exist");
+            return;
+        }
+
+        // expand tab
+        tab.state.expanded = true;
+
+        // dispatch event
+        this.dispatchEvent(new CustomEvent("showtab", {
+            bubbles: true,
+            detail: {
+                tab: id,
+            }
+        }));
     }
 
     /**
@@ -241,60 +329,52 @@ export class PageControl extends Element
     {
         const header = this.$("div.header");
 
+        if (!header) {
+            console.error("header does not exist");
+            return;
+        }
+
         // loop through header tabs
         for (let child of header.children)
             child.state.selected = false;
     }
 
     /**
-     * Collapse all tabs
+     * Collapse tab
      * @return void
      */
-    collapseTabs()
+    collapseTab()
     {
-        const tabsheet = this.querySelector("div.tabsheet:expanded");
+        const tab = this.$("div.tab:expanded");
 
-        if (tabsheet != null)
-            // hide expanded tabsheet
-            tabsheet.state.expanded = false;
+        if (!tab) {
+            //console.log("no expanded tab");
+            return;
+        }
+
+        // hide expanded tabs
+        tab.state.expanded = false;
     }
 
     /**
-     * Expand tab
-     * @param string tab id
+     * Show previous or next tab
+     * @param int +1 next, -1 previous
      * @return void
      */
-    expandTab(id)
+    previousNextTab(direction)
     {
-        let tabsheet = this.$("div.tabsheet#" + id);
+        // get selected header
+        const header = this.$("div.header div:selected");
 
-        if (tabsheet != null)
-            // expand tabsheet
-            tabsheet.state.expanded = true;
-        else
-            console.error("tabsheet element does not exist");
-    }
+        let next = (direction == +1) ? header.nextElementSibling : header.previousElementSibling;
 
-    /**
-     * Set tab by id
-     * @param string tab id
-     * @return void
-     */
-    setTab(id)
-    {
-        // unselect all headers
-        this.unselectHeaders();
+        if (!next) {
+            const parent = header.parentElement;
 
-        // collapse all tabs
-        this.collapseTabs();
+            next = (direction == +1) ? parent.firstChild : parent.lastChild;
+        }
 
-        // expand tab
-        this.expandTab(id);
-
-        // select header
-        const header = this.$("div.header div[panel=" + id + "]");
-
-        header.state.selected = true;
+        this.setTab(next.attributes["panel"]);
     }
 
     /**
@@ -316,27 +396,6 @@ export class PageControl extends Element
     }
 
     /**
-     * Show previous or next tab
-     * @param int +1 next, -1 previous
-     * @return void
-     */
-    previousNextTab(direction)
-    {
-        // get selected header
-        const header = this.$("div.header div:selected");
-
-        let next = (direction == +1) ? header.nextElementSibling : header.previousElementSibling;
-
-        if (next == null) {
-            const parent = header.parentElement;
-
-            next = (direction == +1) ? parent.firstChild : parent.lastChild;
-        }
-
-        this.setTab(next.attributes["panel"]);
-    }
-
-    /**
      * Toggle header visibility
      * @return void
      */
@@ -345,6 +404,23 @@ export class PageControl extends Element
         // get header
         const header = this.$("div.header");
 
+        if (!header) {
+            console.error("header does not exist");
+            return;
+        }
+
         header.classList.toggle("hide");
+    }
+
+    /**
+     * Get element selector
+     * @return string
+     */
+    selector()
+    {
+        if (this.id == "")
+            return "pagecontrol";
+
+        return "pagecontrol#" + this.id;
     }
 }

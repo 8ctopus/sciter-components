@@ -1,5 +1,5 @@
 tab {
-    prototype: TabSheet url('pagecontrol.js');
+    prototype: Tab url('pagecontrol.js');
     display: block;
 }
 
@@ -19,8 +19,6 @@ pagecontrol {
 
 @set pagecontrol-base {
     :root {
-        behavior: tabs;
-
         size: *;
         overflow: hidden;
     }
@@ -30,7 +28,7 @@ pagecontrol {
         flow: horizontal;
     }
 
-    /* header for tabsheet caption */
+    /* header for tab caption */
     div.header {
         flow: horizontal;
 
@@ -49,7 +47,7 @@ pagecontrol {
         display: none;
     }
 
-    /* single tabsheet caption */
+    /* single tab caption */
     div.header > div {
         /* not wider than max-intrinsic */
         max-width: auto;
@@ -103,16 +101,16 @@ pagecontrol {
         text-align: center;
     }
 
-    /* tabsheets */
-    .tabsheets {
+    /* tabs */
+    .tabs {
         size: *;
     }
 
-    .tabsheet {
+    .tab {
         display: none;
     }
 
-    .tabsheet:expanded {
+    .tab:expanded {
         display: block;
 
         height: *;
