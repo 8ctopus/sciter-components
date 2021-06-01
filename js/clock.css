@@ -1,6 +1,5 @@
 clock {
-    prototype: Clock url('clock.js');
-    display: block;
+    prototype: Clock url("clock.js");
     style-set: clock;
 }
 
@@ -9,8 +8,29 @@ clock {
         display: block;
     }
 
-    h2 {
+    :root > div > span {
+        display: inline-block;
+
         margin: 0;
-        color: blue;
+        margin-right: 5dip;
+
+        border-radius: 3dip;
+
+        padding: 3dip;
+
+        background: rgb(69,43,45);
+
+        font-family: Lato, arial;
+        font-size: 25dip;
+        color: white;
+        vertical-align: bottom;
+    }
+
+    :root > div > span:first-child {
+        font-size: 30dip;
+    }
+
+    :root > div > span:last-child {
+        font-size: 20dip;
     }
 }

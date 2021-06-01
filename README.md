@@ -154,11 +154,13 @@ clock {
         ...
     }
 
-    h2 {
+    span {
         ...
     }
 }
 ```
+
+`:root` stands for the clock element and `:root` is needed for styling the element itself and using other selectors on it like immediate children.
 
 The style set can also be assigned from the code
 

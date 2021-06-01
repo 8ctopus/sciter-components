@@ -27,9 +27,13 @@ export class Clock extends Element
         //console.log("clock - render");
         //<div styleset={__DIR__ + "clock.css#clock"}>
 
+        const [hours, minutes, seconds] = new Date().toLocaleTimeString("en-US").split(/:| /)
+
         const component = (
             <div>
-                <h2>{this.time.toLocaleTimeString()}</h2>
+                <span>{hours}</span>
+                <span>{minutes}</span>
+                <span>{seconds}</span>
             </div>
         );
 
