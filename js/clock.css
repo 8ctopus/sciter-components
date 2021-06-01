@@ -26,10 +26,12 @@ clock {
         vertical-align: bottom;
     }
 
+    /* hours */
     :root > div > span:first-child {
         font-size: 30dip;
     }
 
+    /* seconds */
     :root > div > span:last-child {
         font-size: 20dip;
     }
