@@ -1,6 +1,7 @@
 clock {
     prototype: Clock url('clock.js');
     display: block;
+    style-set: clock;
 }
 
 @set clock {

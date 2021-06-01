@@ -139,6 +139,37 @@ where:
 - eventname is a name of event – either standard HTML’s one like click, input, focus, … or custom event name
 - ` at ` - [optional] signifies that selector will follow. selector is CSS selector of child element inside this element. When event handler will be triggered selectorElement argument of the function will get reference to the matching child that generated the event.
 
+## styling
+
+Components can be styled with style sets.
+
+```css
+clock {
+    prototype: Clock url('clock.js');
+    style-set: clock;
+}
+
+@set clock {
+    :root {
+        ...
+    }
+
+    h2 {
+        ...
+    }
+}
+```
+
+The style set can also be assigned from the code
+
+```jsx
+const component = (
+    <div styleset={__DIR__ + "clock.css#clock"}>
+        <h2>{this.time.toLocaleTimeString()}</h2>
+    </div>
+);
+```
+
 ## Sublime Text JSX support
 
 [https://packagecontrol.io/packages/Babel](https://packagecontrol.io/packages/Babel)

@@ -25,9 +25,10 @@ export class Clock extends Element
     render()
     {
         //console.log("clock - render");
+        //<div styleset={__DIR__ + "clock.css#clock"}>
 
         const component = (
-            <div styleset={__DIR__ + "clock.css#clock"}>
+            <div>
                 <h2>{this.time.toLocaleTimeString()}</h2>
             </div>
         );
