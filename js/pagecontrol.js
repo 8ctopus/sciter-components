@@ -183,7 +183,7 @@ export class PageControl extends Element
 
         // create pagecontrol
         const pagecontrol = (
-            <div id={id} class={classes} styleset={__DIR__ + "../css/pagecontrol.css#pagecontrol"}>
+            <div id={id} class={classes} >
                 {headersFirst ? headers : tabs}
                 {headersFirst ? tabs : headers}
             </div>
@@ -411,7 +411,7 @@ export class PageControl extends Element
         }
 
         if (typeof visible === "undefined")
-        header.classList.toggle("hide");
+            header.classList.toggle("hide");
         else
         if (visible)
             header.classList.remove("hide");
