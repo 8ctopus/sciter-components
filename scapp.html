@@ -114,9 +114,9 @@ document.$("button#toggle").on("click", function() {
     pagecontrol.toggleHeader();
 });
 
-document.ready = function() {
+document.on("ready", function() {
     pagecontrol.setTab("tab-3");
-};
+});
 
 </script>
 </head>
