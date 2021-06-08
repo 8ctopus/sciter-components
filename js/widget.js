@@ -16,6 +16,22 @@ export class Widget extends Element
         );
 
         this.content(component);
+
+        // call private method doesn't work
+        //this.#test();
+
+        // call private static method works
+        Widget.#test2();
+    }
+
+    #test()
+    {
+        console.log("private method test");
+    }
+
+    static #test2()
+    {
+        console.log("private static method test2");
     }
 
     ["on click at button.expand"](event)
