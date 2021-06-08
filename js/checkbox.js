@@ -1,5 +1,10 @@
 export class Checkbox extends Element
 {
+    constructor()
+    {
+        super();
+    }
+
     /**
      * Called when element is attached to the DOM tree
      */

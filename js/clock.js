@@ -2,6 +2,11 @@ export class Clock extends Element
 {
     time = new Date();
 
+    constructor()
+    {
+        super();
+    }
+
     /**
      * Called when element is attached to the DOM tree
      */

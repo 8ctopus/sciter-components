@@ -2,13 +2,10 @@ export class Counter extends Element
 {
     counter = 0;
 
-    /*
-    doesn't work for some reason
-    constructor(props)
+    constructor()
     {
-        console.log('counter - constructor');
+        super();
     }
-    */
 
     /**
      * Called when element is attached to the DOM tree
