@@ -1,6 +1,6 @@
 export class Counter extends Element
 {
-    counter = 0;
+    _counter = 0;
 
     constructor()
     {
@@ -20,7 +20,7 @@ export class Counter extends Element
      */
     render()
     {
-        const component = `<button>click me</button> clicked <span>${this.counter}</span> times`;
+        const component = `<button>click me</button> clicked <span>${this._counter}</span> times`;
 
         /*
         does not work because the line must start and end with html tags!
@@ -42,7 +42,7 @@ export class Counter extends Element
      */
     ["on click at button"](event, button)
     {
-        ++this.counter;
+        ++this._counter;
 
         this.render();
     }

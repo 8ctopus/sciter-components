@@ -1,4 +1,5 @@
-export class Search extends Element {
+export class Search extends Element
+{
     /**
      * Called when element is attached to the DOM tree
      */
