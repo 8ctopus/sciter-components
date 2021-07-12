@@ -9,22 +9,33 @@ button {
 }
 
 </style>
-<script>
+<script type="module">
 
-const tabid = this.id;
+/**
+ * Initialize tab
+ * @param  DOM Element tab
+ * @param  DOM Element pagecontrol
+ * @return void
+ */
+export function initTab(tab, pagecontrol)
+{
+    //console.log("Init tab - " + tab.selector("both"));
 
-document.on("showtab", this.selector("pagecontrol"), function(event, element) {
-    if (event.detail.tab != tabid)
-        return;
+    // handle button click event
+    tab.on("click", "button#hello", function() {
+        console.log(`${tab.id} button clicked!`);
+    });
 
-    console.log("Show tab - " + element.$("div.tabs tab#" + tabid).getAttribute("title"));
+    // handle show tab event
+    pagecontrol.on("showtab", function(event, element) {
+        // check that event is for this tab
+        if (tab.id != event.detail.tab)
+            return;
 
-    console.log(`tab5 js executed on ${element.id}`);
-});
-
-document.on("click", this.selector("both") + " button#hello", function() {
-    console.log(`tab5 button clicked!`);
-});
+        // do something when tab is shown
+        console.log(`${tab.id} shown`);
+    });
+}
 
 </script>
 <p> fifth tab content </p>
