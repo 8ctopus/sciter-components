@@ -104,6 +104,12 @@ const html = "<b>some</b> literal <i>HTML</i>";
 <div state-html={html} />
 ```
 
+- using a variable for tag name
+
+```jsx
+JSX(tagName, {id: "hw"}, ["Hello, world!"]);
+```
+
 More rules and examples can be found here
 
 - [Sciter Reactor JSX](https://sciter.com/tutorials/reactor-jsx/)
