@@ -17,10 +17,8 @@ export class Widget extends Element
 
         this.content(component);
 
-        // call private method doesn't work
-        //this.#test();
+        this.#test();
 
-        // call private static method works
         Widget.#test2();
     }
 
