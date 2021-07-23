@@ -1,5 +1,8 @@
 {
     "require": {
-        "https://github.com/8ctopus/sciter-pagecontrol": "1.0.18"
+        "https://github.com/8ctopus/sciter-fontawesome": "1.0.0",
+        "https://github.com/8ctopus/sciter-logger": "0.3.4",
+        "https://github.com/8ctopus/sciter-utils": "0.1.0",
+        "https://github.com/8ctopus/sciter-pagecontrol": "1.1.0"
     }
 }

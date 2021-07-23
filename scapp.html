@@ -1,12 +1,14 @@
 <html
     window-resizable="true"
     window-width="400dip"
-    window-height="770dip"
+    window-height="900dip"
 >
 <head>
 <title>sciter components demo</title>
-<style src="vendor/8ctopus/sciter-fontawesome/src/css/fontawesome.css" />
 <style>
+
+@import url(vendor/8ctopus/sciter-fontawesome/src/css/fontawesome.css);
+@import url(vendor/8ctopus/sciter-logger/src/logger.css);
 
 body {
     flow: vertical;
@@ -77,10 +79,10 @@ search {
     display: block;
 }
 
-@import url("js/clock.css");
-@import url("js/welcome.css");
-@import url("js/groupbox.css");
-@import url("vendor/8ctopus/sciter-pagecontrol/src/pagecontrol.css");
+@import url(js/clock.css);
+@import url(js/welcome.css);
+@import url(js/groupbox.css);
+@import url(vendor/8ctopus/sciter-pagecontrol/src/pagecontrol.css);
 
 div#controls {
     flow: horizontal;
@@ -98,24 +100,51 @@ pagecontrol div#tabsheet-4 {
 }
 
 </style>
-<script src="js/utils.js" />
-<script>
+<script type="module">
 
-let pagecontrol = document.$("pagecontrol");
+import {logger} from "vendor/8ctopus/sciter-logger/src/logger.js";
+import {addReloadWindow, centerWindow} from "vendor/8ctopus/sciter-utils/src/utils.js";
 
-document.$("button#previous").on("click", function() {
-    pagecontrol.previousTab();
-});
+    // initialize logger
+    logger.init("", false);
 
-document.$("button#next").on("click", function() {
-    pagecontrol.nextTab();
-});
+    // attach logger to console
+    logger.attach();
 
-document.$("button#toggle").on("click", function() {
-    pagecontrol.toggleHeader();
-});
+    // subscribe to logger messages
+    logger.subscribe(function(level, message) {
+        const log = document.$("plaintext#logger");
+
+        log.append(JSX(level, {}, [message]));
+
+        // scroll to last item
+        log.lastElementChild.scrollIntoView({behavior: "smooth"});
+    });
 
 document.on("ready", function() {
+    // capture unhandled exceptions
+    logger.capture();
+
+    // add support for F5 reload
+    addReloadWindow();
+
+    // center window on screen
+    centerWindow();
+
+    const pagecontrol = document.$("pagecontrol");
+
+    document.on("click", "button#previous", function() {
+        pagecontrol.previousTab();
+    });
+
+    document.on("click", "button#next", function() {
+        pagecontrol.nextTab();
+    });
+
+    document.on("click", "button#toggle", function() {
+        pagecontrol.toggleHeader();
+    });
+
     pagecontrol.showTab("tab-3");
 });
 
@@ -156,5 +185,6 @@ document.on("ready", function() {
         <tab src="tab4.html" title="fourth tab" icon="fas fa-star" />
         <tab src="tab5.html" />
     </pagecontrol>
+    <plaintext #logger readonly />
 </body>
 </html>
