@@ -103,13 +103,11 @@ pagecontrol div#tabsheet-4 {
 <script type="module">
 
 import {logger} from "vendor/8ctopus/sciter-logger/src/logger.js";
-import {addReloadWindow, centerWindow} from "vendor/8ctopus/sciter-utils/src/utils.js";
+import * as utils from "vendor/8ctopus/sciter-utils/src/utils.js";
 
+document.on("ready", function() {
     // initialize logger
     logger.init("", false);
-
-    // attach logger to console
-    logger.attach();
 
     // subscribe to logger messages
     logger.subscribe(function(level, message) {
@@ -121,15 +119,23 @@ import {addReloadWindow, centerWindow} from "vendor/8ctopus/sciter-utils/src/uti
         log.lastElementChild.scrollIntoView({behavior: "smooth"});
     });
 
-document.on("ready", function() {
+    // attach logger to console
+    logger.attach();
+
     // capture unhandled exceptions
     logger.capture();
 
     // add support for F5 reload
-    addReloadWindow();
+    utils.addReloadWindow();
 
     // center window on screen
-    centerWindow();
+    utils.centerWindow("screen");
+
+    // close window on escape key press
+    utils.closeWindowOnEscape();
+
+    // bring window to front
+    utils.windowToFront();
 
     const pagecontrol = document.$("pagecontrol");
 
