@@ -7,3 +7,6 @@
 /*.sublime-workspace
 
 /vendor/
+
+/test.log
+
