@@ -106,7 +106,7 @@ import {logger} from "vendor/8ctopus/sciter-logger/src/logger.js";
 import * as utils from "vendor/8ctopus/sciter-utils/src/utils.js";
 
 // initialize logger
-logger.init(URL.toPath(__DIR__ + "test.log"), false);
+logger.init();
 
 // attach logger to console
 logger.attach();
@@ -116,23 +116,16 @@ logger.capture();
 
 document.on("ready", function() {
     // subscribe to logger messages
-    logger.subscribe(function(level, message) {
-        const log = document.$("plaintext#logger");
-
-        log.append(JSX(level, {}, [message]));
-
-        // scroll to last item
-        log.lastElementChild.scrollIntoView({behavior: "smooth"});
-    });
+    logger.plaintext(document.$("plaintext#logger"));
 
     // add support for F5 reload
     utils.addReloadWindow();
 
+    // close window on escape
+    utils.closeWindowOnEscape();
+
     // center window on screen
     utils.centerWindow("screen");
-
-    // close window on escape key press
-    utils.closeWindowOnEscape();
 
     // bring window to front
     utils.windowToFront();
@@ -151,6 +144,7 @@ document.on("ready", function() {
     });
 
     document.on("click", "button#toggle", function() {
+        // show, hide pagecontrol header
         pagecontrol.toggleHeaders();
     });
 
@@ -175,7 +169,7 @@ document.on("ready", function() {
     <div #controls>
         <button #previous>&lt;</button>
         <button #next>&gt;</button>
-        <button #toggle>Show/hide header</button>
+        <button #toggle>Show/hide headers</button>
     </div>
     <pagecontrol #p1 header="top">
         <tab title="first tab" icon="fas fa-star">
