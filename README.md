@@ -38,7 +38,7 @@ const component = (
 );
 ```
 
-- A JSX expression must have exactly one outermost element or use an array
+- A JSX expression must have exactly one outermost element, or use an array, or use a fragment.
 
 ```jsx
 // doesn't work
