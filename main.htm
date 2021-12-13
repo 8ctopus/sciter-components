@@ -114,7 +114,7 @@ logger.attach();
 // capture unhandled exceptions
 logger.capture(unhandledExceptionHandler);
 
-document.ready = function() {
+document.on("ready", function() {
     // subscribe to logger messages
     logger.plaintext(document.$("plaintext#logger"));
 
@@ -152,7 +152,7 @@ document.ready = function() {
     });
 
     pagecontrol.showTab("tab-3");
-}
+});
 
 /**
  * Unhandled exception handler
