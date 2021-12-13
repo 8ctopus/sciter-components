@@ -24,7 +24,13 @@ JSX was directly integrated in sciter's javascript engine, while browser javascr
 
 ### rules
 
-- A multi-line JSX expression must be wrapped in parentheses
+- A multi-line JSX expression must start on the same line as `=` or `return ` or should be wrapped in parentheses. (The reason of this lies in the famous "Automatic semicolon insertion": https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi)
+
+```jsx
+const component = <p>
+    a paragraph
+</p>;
+```
 
 ```jsx
 const component = (
@@ -54,6 +60,12 @@ const component = [
     <p> first paragraph </p>,
     <p> second paragraph </p>
 ];
+
+// fragment alternative that also works
+const component = <>
+    <p> first paragraph </p>
+    <p> second paragraph </p>
+</>;
 ```
 
 - JSX does not support “tail-less” HTML tags like: `<img>`, `<input>` or `<br>`, close them with ` />`
