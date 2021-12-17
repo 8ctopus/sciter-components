@@ -1,12 +1,8 @@
-/**
- * A simple groupbox component
- * @author hello@octopuslabs.io
- */
-
 export class GroupBox extends Element
 {
     /**
      * Called when element is attached to the DOM tree
+     * @return void
      */
     componentDidMount()
     {
@@ -15,6 +11,7 @@ export class GroupBox extends Element
 
     /**
      * Render component
+     * @return void
      */
     render()
     {
@@ -27,6 +24,7 @@ export class GroupBox extends Element
             <fieldset styleset={__DIR__ + "groupbox.css#groupbox"} state-html={html} />
         );
 
+        // replace element content with component
         this.content(groupbox);
     }
 }
