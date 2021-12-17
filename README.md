@@ -20,19 +20,18 @@ All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examp
 
 ### basics
 
-Components all extend on the `Element` class.
-Components are javascript modules therefore they uses strict js syntax.
-Here's an example
+Components all extend on the `Element` class. Components are javascript modules therefore they uses strict js syntax.
+Here's the simplest example of a component
 
 ```css
 hello {
-    prototype: Hello url("js/hello.js");
+    prototype: HelloWorld url("js/helloworld.js");
     display: block;
 }
 ```
 
 ```js
-export class Hello extends Element
+export class HelloWorld extends Element
 {
     /// Called when element is attached to the DOM tree
     componentDidMount()
@@ -40,15 +39,15 @@ export class Hello extends Element
         // create html JSX
         const html = <h1>Hello World!</h1>;
 
-        // replace element content
+        // set element inner content
         this.content(html);
     }
 }
 ```
 
-When the component is attached to the DOM tree, `componentDidMount` is called. Inside `componentDidMount`, the HTML is created using JSX (see below) and finally added to the DOM tree.
+When the component is attached to the DOM tree, `componentDidMount` is called. Inside it, the inner HTML is created using JSX (see below) and finally added to the DOM tree using `content`.
 
-[https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
+More info here: [https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
 
 ### methods
 
