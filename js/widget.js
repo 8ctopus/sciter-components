@@ -35,6 +35,8 @@ export class Widget extends Element
     ["on click at button.expand"](event, element)
     {
         this.state.expanded = true;
+
+        // no need to call render, it's called automatically
     }
 
     /**
@@ -43,5 +45,7 @@ export class Widget extends Element
     ["on click at button.collapse"](event, element)
     {
         this.state.expanded = false;
+
+        // no need to call render, it's called automatically
     }
 }
