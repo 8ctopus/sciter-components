@@ -17,14 +17,14 @@ export class Counter extends Element
      */
     componentDidMount()
     {
-        this.render();
+        this.#render();
     }
 
     /**
      * Render component
      * @return void
      */
-    render()
+    #render()
     {
         const component = <>
                 <button>click me</button>
@@ -35,7 +35,7 @@ export class Counter extends Element
         does not work because the line must start and end with html tags!
         const component = [
             <button>click me</button>,
-            clicked <span>{this.counter}</span> times
+            button clicked <span>{this.counter}</span> times
         ];
         */
 
@@ -46,10 +46,10 @@ export class Counter extends Element
     /**
      * On button click event
      */
-    ["on click at button"](event, button)
+    ["on click at button"](event, element)
     {
         ++this.#counter;
 
-        this.render();
+        this.#render();
     }
 }
