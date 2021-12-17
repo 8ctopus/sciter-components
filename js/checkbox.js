@@ -2,6 +2,7 @@ export class Checkbox extends Element
 {
     constructor()
     {
+        // call Element constructor
         super();
     }
 
