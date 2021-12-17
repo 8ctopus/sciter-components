@@ -2,20 +2,22 @@ export class Search extends Element
 {
     /**
      * Called when element is attached to the DOM tree
+     * @return void
      */
     componentDidMount()
     {
-        //console.log("search - mount");
+        //console.debug(this.tag, "componentDidMount");
 
         this.render();
     }
 
     /**
      * Render component
+     * @return void
      */
     render()
     {
-        //console.log("search - render");
+        //console.debug(this.tag, "render");
 
         const component = [
             <input|text />,
@@ -26,13 +28,16 @@ export class Search extends Element
     }
 
     ["on click at button.do"](event, button) {
-        console.log("search - click");
+        console.debug(this.tag, "button click");
 
-        this.post(new Event("do-search", {data: this.$("input").value} ));
+        // send search event
+        this.post(new Event("do-search", {
+            data: this.$("input").value
+        }));
     }
 
     ["on change at input"](event, input) {
-        console.log("search - " + this.value());
+        console.debug(this.tag, this.value);
 
         //this.showSuggestionsFor(input.value);
     }
