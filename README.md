@@ -51,7 +51,7 @@ More info here: [https://sciter.com/tutorial-learn-sciters-html-components-in-5-
 
 ### key methods
 
-The `Element` class contains the following methods that are important for components:
+The following methods are important for components:
 
 - `componentDidMount()` - called once immediately after element was attached to the DOM tree
 
@@ -62,6 +62,8 @@ The `Element` class contains the following methods that are important for compon
 - `componentUpdate(props)` - patch properties and enqueue rendering (calls element.render() method)
 
 - `componentWillUnmount()` - called once immediately before element removal from the DOM tree
+
+Note: `componentDidMount()`, `render()`, `componentWillUnmount()` do not exist in the `Element` class, only in the derived class.
 
 ### more methods
 
