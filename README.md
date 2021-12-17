@@ -45,7 +45,7 @@ export class HelloWorld extends Element
 }
 ```
 
-When the component is attached to the DOM tree, `componentDidMount` is called. Inside it, the inner HTML is created using JSX (see below) and finally added to the DOM tree using `content`.
+When the component is attached to the DOM tree, `componentDidMount()` is called. Inside it, the inner HTML is created using JSX (see below) and finally added to the DOM tree using `content()`.
 
 More info here: [https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
 
@@ -61,10 +61,11 @@ The `Element` class contains the following methods that are important for compon
 
 #### rendering
 
+- `render()`
 - `content(vnode)` - replace element content by vnode
 - `element.patch(vnode[, onlyChildren:true])` - patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
-- `requestPaint()`
-- `clear()`
+- `requestPaint()` WIP
+- `clear()` WIP
 
 ### events
 
