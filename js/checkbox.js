@@ -27,14 +27,6 @@ export class Checkbox extends Element
             <label for={id}>{label}</label>
         ];
 
-        /*
-        doesn't work
-        const component3 = [
-            <input|checkbox #{id} ({id})></input>,
-            <label for="{id}">{label}</label>
-        ];
-        */
-
         this.content(component);
     }
 }
