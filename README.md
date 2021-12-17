@@ -20,25 +20,52 @@ All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examp
 
 ### basics
 
-Components all extend on the `Element` class. `Element` contains the following methods that are useful for components:
+Components all extend on the `Element` class.
+Components are javascript modules therefore they uses strict js syntax.
+Here's an example
 
-- content(vnode) - replace element content by vnode
-- element.patch(vnode[, onlyChildren:true]) - patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
-- componentUpdate() - patch properties and enqueue rendering
-- requestPaint()
-- clear()
+```css
+hello {
+    prototype: Hello url("js/hello.js");
+    display: block;
+}
+```
 
-Components are javascript modules therefore it uses strict syntax.
+```js
+export class Hello extends Element
+{
+    /// Called when element is attached to the DOM tree
+    componentDidMount()
+    {
+        // create html JSX
+        const html = <h1>Hello World!</h1>;
+
+        // replace element content
+        this.content(html);
+    }
+}
+```
+
+When the component is attached to the DOM tree, `componentDidMount` is called. Inside `componentDidMount`, the HTML is created using JSX (see below) and finally added to the DOM tree.
 
 [https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
 
-### lifecycle
+### methods
 
-Sciter out of the box provides three lifecycle methods:
+The `Element` class contains the following methods.
 
-- `componentDidMount()` called once when element is attached to DOM tree
-- `componentWillUnmount()` called once immediately before removal from DOM tree
-- `componentUpdate(props)` call this method to update the state of the element
+#### lifecycle
+
+- `componentDidMount()` - called once when element is attached to DOM tree
+- `componentWillUnmount()` - called once immediately before removal from DOM tree
+- `componentUpdate(props)` - patch properties and enqueue rendering
+
+#### rendering
+
+- `content(vnode)` - replace element content by vnode
+- `element.patch(vnode[, onlyChildren:true])` - patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
+- `requestPaint()`
+- `clear()`
 
 ### JSX
 
