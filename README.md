@@ -132,11 +132,9 @@ Components javascript code is set to strict.
 
 Sciter out of the box provides three lifecycle methods:
 
-- `constructor()` called when DOM element is not attached to the DOM yet
 - `componentDidMount()` called once when element is attached to DOM tree
 - `componentWillUnmount()` called once immediately before removal from DOM tree
 - `componentUpdate(props)` call this method to update the state of the element
-- `render()`
 
 ### events
 
