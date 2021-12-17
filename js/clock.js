@@ -1,12 +1,12 @@
 export class Clock extends Element
 {
-    _time;
+    #time;
 
     constructor()
     {
         super();
 
-        this._time = new Date();
+        this.#time = new Date();
     }
 
     /**
@@ -55,7 +55,7 @@ export class Clock extends Element
     {
         //console.log("clock - update");
 
-        this._time = props.time;
+        this.#time = props.time;
 
         this.render();
     }
