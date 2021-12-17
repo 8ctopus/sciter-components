@@ -25,7 +25,7 @@ export class Clock extends Element
         this.#time = new Date();
 
         // render component
-        this.#render();
+        this.render();
 
         // add timer to update component every second
         this.timer(1000, () => {
@@ -42,7 +42,7 @@ export class Clock extends Element
      * Render component
      * @return void
      */
-    #render()
+    render()
     {
         if (this.#debug)
             console.debug(this.tag, "render");
@@ -75,6 +75,6 @@ export class Clock extends Element
         this.#time = props.time;
 
         // re-render component html
-        this.#render();
+        this.render();
     }
 }

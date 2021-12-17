@@ -17,14 +17,14 @@ export class Counter extends Element
      */
     componentDidMount()
     {
-        this.#render();
+        this.render();
     }
 
     /**
      * Render component
      * @return void
      */
-    #render()
+    render()
     {
         const component = <>
                 <button>click me</button>
@@ -50,6 +50,6 @@ export class Counter extends Element
     {
         ++this.#counter;
 
-        this.#render();
+        this.render();
     }
 }

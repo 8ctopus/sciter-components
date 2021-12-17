@@ -6,14 +6,14 @@ export class Widget extends Element
      */
     componentDidMount()
     {
-        this.#render();
+        this.render();
     }
 
     /**
      * Render component
      * @return void
      */
-    #render()
+    render()
     {
         const message = this.attributes["message"] || "?";
 
