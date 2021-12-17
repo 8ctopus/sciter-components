@@ -13,16 +13,16 @@ export class Checkbox extends Element
         const id    = this.attributes["id"] || "?";
         const label = this.attributes["label"] || "?";
 
-        // option 1 using one outermost element
-        const component1 = (
-            <div>
+        // option 1 using one outermost element fragment
+        let component = (
+            <>
                 <input type="checkbox" id={id} name={id} />
                 <label for={id}>{label}</label>
-            </div>
+            </>
         );
 
         // option 2 using an array
-        const component2 = [
+        component = [
             <input type="checkbox" id={id} name={id} />,
             <label for={id}>{label}</label>
         ];
@@ -35,6 +35,6 @@ export class Checkbox extends Element
         ];
         */
 
-        this.content(component2);
+        this.content(component);
     }
 }
