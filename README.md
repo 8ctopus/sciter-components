@@ -69,7 +69,7 @@ The `Element` class contains the following methods that are important for compon
 
 ### events
 
-```
+```jsx
 ["on eventname"](event) {}
 ["on eventname at selector"](event, selectorElement) {}
 ```
@@ -103,7 +103,7 @@ clock {
 
 `:root` stands for the clock element and `:root` is needed for styling the element itself and using other selectors on it like immediate children.
 
-The style set can also be assigned from the code
+The style set can also be assigned from code:
 
 ```jsx
 const component = (
