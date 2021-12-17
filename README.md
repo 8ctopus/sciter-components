@@ -16,7 +16,31 @@ All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examp
 - install packages `php bin/spm.phar install`
 - run `start.bat` (Win) or `./start.sh` (Linux/Mac)
 
-## JSX
+## Components
+
+### basics
+
+Components all extend on `Element`. `Element` contains the following methods that are useful for components:
+
+- content(vnode) - replace element content by vnode
+- element.patch(vnode[, onlyChildren:true]) - patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
+- componentUpdate() - patch properties and enqueue rendering
+- requestPaint()
+- clear()
+
+Components are javascript modules therefore it uses strict syntax.
+
+[https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
+
+### lifecycle
+
+Sciter out of the box provides three lifecycle methods:
+
+- `componentDidMount()` called once when element is attached to DOM tree
+- `componentWillUnmount()` called once immediately before removal from DOM tree
+- `componentUpdate(props)` call this method to update the state of the element
+
+### JSX
 
 All components in this repo use JSX. JSX stands for JavaScript XML and it allows to write HTML code inside javascript.
 
@@ -119,30 +143,6 @@ More rules and examples can be found here
 
 - [Sciter Reactor JSX](https://sciter.com/tutorials/reactor-jsx/)
 - [Sciter JSX official documentation](https://github.com/c-smile/quickjspp/blob/master/doc/jsx.md)
-
-## Components
-
-Components all extend on `Element`. `Element` contains the following methods that are interesting in this case
-
-content(vnode) - replace element content by vnode
-element.patch(vnode[, onlyChildren:true]) - patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
-componentUpdate() - patch properties and enqueue rendering, does roughly the following:
-clear()
-requestPaint()
-
-Note: all components javascript code is set to strict.
-
-### basics
-
-[https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
-
-### lifecycle
-
-Sciter out of the box provides three lifecycle methods:
-
-- `componentDidMount()` called once when element is attached to DOM tree
-- `componentWillUnmount()` called once immediately before removal from DOM tree
-- `componentUpdate(props)` call this method to update the state of the element
 
 ### events
 
