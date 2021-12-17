@@ -21,11 +21,10 @@ export class Welcome extends Element
 {
     componentDidMount()
     {
+        // get name attribute
         const name = this.attributes["name"] ?? "";
 
-        const welcome = (
-            <p>Hello, {name}!</p>
-        );
+        const welcome = <p>Hello, {name}!</p>;
 
         // replace element content with component
         this.content(welcome);
