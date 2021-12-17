@@ -1,7 +1,8 @@
 export class Clock extends Element
 {
-    // private variable
+    // private variables
     #time;
+    #debug;
 
     constructor()
     {
@@ -16,7 +17,10 @@ export class Clock extends Element
      */
     componentDidMount()
     {
-        console.debug(this.tag, "componentDidMount");
+        this.#debug = this.hasAttribute("debug");
+
+        if (this.#debug)
+            console.debug(this.tag, "componentDidMount");
 
         this.render();
 
@@ -34,7 +38,8 @@ export class Clock extends Element
      */
     componentUpdate(props)
     {
-        console.debug(this.tag, "componentUpdate");
+        if (this.#debug)
+            console.debug(this.tag, "componentUpdate");
 
         this.#time = props.time;
 
@@ -46,7 +51,8 @@ export class Clock extends Element
      */
     render()
     {
-        console.debug(this.tag, "render");
+        if (this.#debug)
+            console.debug(this.tag, "render");
         //<div styleset={__DIR__ + "clock.css#clock"}>
 
         const [hours, minutes, seconds] = new Date().toLocaleTimeString("en-US").split(/:| /)
