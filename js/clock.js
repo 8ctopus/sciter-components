@@ -1,9 +1,11 @@
 export class Clock extends Element
 {
+    // private variable
     #time;
 
     constructor()
     {
+        // call Element constructor
         super();
 
         this.#time = new Date();
@@ -14,7 +16,7 @@ export class Clock extends Element
      */
     componentDidMount()
     {
-        //console.log("clock - mount");
+        console.debug(this.tag, "componentDidMount");
 
         this.render();
 
@@ -27,11 +29,24 @@ export class Clock extends Element
     }
 
     /**
+     * Update component
+     * @param array props
+     */
+    componentUpdate(props)
+    {
+        console.debug(this.tag, "componentUpdate");
+
+        this.#time = props.time;
+
+        this.render();
+    }
+
+    /**
      * Render component
      */
     render()
     {
-        //console.log("clock - render");
+        console.debug(this.tag, "render");
         //<div styleset={__DIR__ + "clock.css#clock"}>
 
         const [hours, minutes, seconds] = new Date().toLocaleTimeString("en-US").split(/:| /)
@@ -45,18 +60,5 @@ export class Clock extends Element
         );
 
         this.content(component);
-    }
-
-    /**
-     * Update component
-     * @param array props
-     */
-    componentUpdate(props)
-    {
-        //console.log("clock - update");
-
-        this.#time = props.time;
-
-        this.render();
     }
 }
