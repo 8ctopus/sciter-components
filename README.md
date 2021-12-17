@@ -49,22 +49,22 @@ When the component is attached to the DOM tree, `componentDidMount()` is called.
 
 More info here: [https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
 
-### methods
+### key methods
 
 The `Element` class contains the following methods that are important for components:
 
-- `componentDidMount()` - called once when element is attached to DOM tree
+- `componentDidMount()` - called once immediately after element was attached to the DOM tree
 
 - `render()` - method that calls content() internally
-- `content(vnode)` - replace element content by vnode (replace innerHTML)
+  - `content(vnode)` - set element content (innerHTML)
+  - `element.patch(vnode[, onlyChildren:true])` - alternative to `content()` patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
 
 - `componentUpdate(props)` - patch properties and enqueue rendering (calls element.render() method)
 
-- `componentWillUnmount()` - called once immediately before removal from DOM tree
+- `componentWillUnmount()` - called once immediately before element removal from the DOM tree
 
 ### more methods
 
-- `element.patch(vnode[, onlyChildren:true])` - patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
 - `requestPaint()` WIP
 - `clear()` WIP
 
