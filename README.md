@@ -184,6 +184,6 @@ const component = (
 );
 ```
 
-## Sublime Text JSX support
+## Sublime Text 3 JSX support
 
 [https://packagecontrol.io/packages/Babel](https://packagecontrol.io/packages/Babel)
