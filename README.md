@@ -20,7 +20,7 @@ All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examp
 
 ### basics
 
-Components all extend on `Element`. `Element` contains the following methods that are useful for components:
+Components all extend on the `Element` class. `Element` contains the following methods that are useful for components:
 
 - content(vnode) - replace element content by vnode
 - element.patch(vnode[, onlyChildren:true]) - patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
