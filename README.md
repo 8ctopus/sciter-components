@@ -57,7 +57,7 @@ The `Element` class contains the following methods that are important for compon
 
 - `componentDidMount()` - called once when element is attached to DOM tree
 - `componentWillUnmount()` - called once immediately before removal from DOM tree
-- `componentUpdate(props)` - patch properties and enqueue rendering
+- `componentUpdate(props)` - patch properties and enqueue rendering (calls element.render() method)
 
 #### rendering
 
