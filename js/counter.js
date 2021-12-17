@@ -1,14 +1,19 @@
 export class Counter extends Element
 {
-    _counter = 0;
+    // private variable
+    #counter;
 
     constructor()
     {
+        // call Element constructor
         super();
+
+        this.#counter = 0;
     }
 
     /**
      * Called when element is attached to the DOM tree
+     * @return void
      */
     componentDidMount()
     {
@@ -17,10 +22,14 @@ export class Counter extends Element
 
     /**
      * Render component
+     * @return void
      */
     render()
     {
-        const component = `<button>click me</button> clicked <span>${this._counter}</span> times`;
+        const component = <>
+                <button>click me</button>
+                clicked <span>{this.#counter}</span> times
+            </>;
 
         /*
         does not work because the line must start and end with html tags!
@@ -30,11 +39,8 @@ export class Counter extends Element
         ];
         */
 
-        // option 1 (preferred as it will process arrays)
+        // replace element content with component
         this.content(component);
-
-        // option 2 (raw assign without processing)
-        //this.innerHTML = component;
     }
 
     /**
@@ -42,7 +48,7 @@ export class Counter extends Element
      */
     ["on click at button"](event, button)
     {
-        ++this._counter;
+        ++this.#counter;
 
         this.render();
     }
