@@ -24,9 +24,13 @@ export class Search extends Element
             <button .do>Search</button>
         ];
 
+        // replace element content with component
         this.content(component);
     }
 
+    /**
+     * On button click
+     */
     ["on click at button.do"](event, button) {
         console.debug(this.tag, "button click");
 
@@ -36,18 +40,27 @@ export class Search extends Element
         }));
     }
 
+    /**
+     * On text enter
+     */
     ["on change at input"](event, input) {
-        console.debug(this.tag, this.value);
+        console.debug(this.tag, this.val);
 
         //this.showSuggestionsFor(input.value);
     }
 
-    get value()
+    /**
+     * Val property getter
+     */
+    get val()
     {
         return this.$("input").value;
     }
 
-    set value(value)
+    /**
+     * Val property setter
+     */
+    set val(value)
     {
         this.$("input").value = value;
     }
