@@ -50,23 +50,16 @@ checkbox {
 widget {
     prototype: Widget url("js/widget.js");
     display: block;
-}
-
-div#widget {
     flow: horizontal;
-    vertical-align: middle;
 }
 
-div#widget h1 {
+widget > * {
+    vertical-align: middle;
     margin-right: 0.5em;
 }
 
 widget:expanded h1 {
-    font-size: 30dip;
-}
-
-widget:collapsed h1 {
-    font-size: 10dip;
+    font-size: 32dip;
 }
 
 counter {

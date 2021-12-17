@@ -18,11 +18,11 @@ export class Widget extends Element
         const message = this.attributes["message"] || "?";
 
         const component = (
-            <div>
+            <>
                 <h1>{message}</h1>
                 <button .expand>+</button>
                 <button .collapse>-</button>
-            </div>
+            </>
         );
 
         // replace element content with component
