@@ -8,7 +8,8 @@ clock {
         display: block;
     }
 
-    :root > div > span {
+    /* hours, minutes, seconds */
+    :root > span {
         display: inline-block;
 
         margin: 0;
@@ -27,12 +28,12 @@ clock {
     }
 
     /* hours */
-    :root > div > span:first-child {
+    :root > span:first-child {
         font-size: 30dip;
     }
 
     /* seconds */
-    :root > div > span:last-child {
+    :root > span:last-child {
         font-size: 20dip;
     }
 }

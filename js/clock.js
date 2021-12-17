@@ -8,8 +8,6 @@ export class Clock extends Element
     {
         // call Element constructor
         super();
-
-        this.#time = new Date();
     }
 
     /**
@@ -23,8 +21,11 @@ export class Clock extends Element
         if (this.#debug)
             console.debug(this.tag, "componentDidMount");
 
+        // set time
+        this.#time = new Date();
+
         // render component
-        this.render();
+        this.#render();
 
         // add timer to update component every second
         this.timer(1000, () => {
@@ -35,6 +36,29 @@ export class Clock extends Element
             // to keep the timer ticking
             return true;
         });
+    }
+
+    /**
+     * Render component
+     * @return void
+     */
+    #render()
+    {
+        if (this.#debug)
+            console.debug(this.tag, "render");
+
+        // split time in its components
+        const [hours, minutes, seconds] = new Date().toLocaleTimeString("en-US").split(/:| /)
+
+        // JSX
+        const component = <>
+                <span>{hours}</span>
+                <span>{minutes}</span>
+                <span>{seconds}</span>
+            </>;
+
+        // set component inner html
+        this.content(component);
     }
 
     /**
@@ -50,33 +74,7 @@ export class Clock extends Element
         // update time
         this.#time = props.time;
 
-        // re-render component
-        this.render();
-    }
-
-    /**
-     * Render component
-     * @return void
-     */
-    render()
-    {
-        if (this.#debug)
-            console.debug(this.tag, "render");
-        //<div styleset={__DIR__ + "clock.css#clock"}>
-
-        // split time in its components
-        const [hours, minutes, seconds] = new Date().toLocaleTimeString("en-US").split(/:| /)
-
-        // JSX
-        const component = (
-            <div>
-                <span>{hours}</span>
-                <span>{minutes}</span>
-                <span>{seconds}</span>
-            </div>
-        );
-
-        // replace element content with component
-        this.content(component);
+        // re-render component html
+        this.#render();
     }
 }
