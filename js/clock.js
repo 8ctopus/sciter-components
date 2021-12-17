@@ -75,6 +75,9 @@ export class Clock extends Element
         this.#time = props.time;
 
         // re-render component html
-        this.render();
+        //this.render();
+
+        // OR better call parent componentUpdate which will trigger the render
+        super.componentUpdate();
     }
 }
