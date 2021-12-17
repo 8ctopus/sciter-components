@@ -53,16 +53,17 @@ More info here: [https://sciter.com/tutorial-learn-sciters-html-components-in-5-
 
 The `Element` class contains the following methods that are important for components:
 
-#### lifecycle
-
 - `componentDidMount()` - called once when element is attached to DOM tree
-- `componentWillUnmount()` - called once immediately before removal from DOM tree
+
+- `render()` - method that calls content() internally
+- `content(vnode)` - replace element content by vnode (replace innerHTML)
+
 - `componentUpdate(props)` - patch properties and enqueue rendering (calls element.render() method)
 
-#### rendering
+- `componentWillUnmount()` - called once immediately before removal from DOM tree
 
-- `render()`
-- `content(vnode)` - replace element content by vnode
+### more methods
+
 - `element.patch(vnode[, onlyChildren:true])` - patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
 - `requestPaint()` WIP
 - `clear()` WIP
