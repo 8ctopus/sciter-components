@@ -1,20 +1,17 @@
 groupbox {
     prototype: GroupBox url('groupbox.js');
-    display: block;
+    style-set: groupbox;
 }
 
 @set groupbox {
     :root {
-        width: max-content;
-        height: max-content;
+        display: block;
+
+        margin: 0;
+        width: *;
     }
 
-    legend {
-        margin-top: -2dip;
-
-        width: max-content;
-        text-overflow: ellipsis;
-        overflow-x: hidden;
-        white-space: nowrap;
+    :root > legend {
+        vertical-align: top;
     }
 }
