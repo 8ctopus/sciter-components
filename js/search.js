@@ -8,17 +8,6 @@ export class Search extends Element
     {
         //console.debug(this.tag, "componentDidMount");
 
-        this.render();
-    }
-
-    /**
-     * Render component
-     * @return void
-     */
-    render()
-    {
-        //console.debug(this.tag, "render");
-
         const component = [
             <input|text />,
             <button .do>Search</button>
