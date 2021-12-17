@@ -55,6 +55,7 @@ export class Clock extends Element
                 <span>{hours}</span>
                 <span>{minutes}</span>
                 <span>{seconds}</span>
+                <button>DEL</button>
             </>;
 
         // set component inner html
@@ -79,5 +80,26 @@ export class Clock extends Element
 
         // OR better call parent componentUpdate which will trigger the render
         super.componentUpdate();
+    }
+
+    /**
+     * Called when element is detached from the DOM tree
+     * @return void
+     */
+    componentWillUnmount()
+    {
+        if (this.#debug)
+            console.debug(this.tag, "componentWillUnmount");
+
+        // unset timer
+        this.timer(1000, null);
+    }
+
+    /**
+     * On button click
+     */
+    ["on click at button"]()
+    {
+        this.remove();
     }
 }
