@@ -9,6 +9,7 @@ export class Hello extends Element
         // get user attribute
         const user = this.attributes["user"] || "?";
 
+        // create component html
         const component = <h1>Hello {user}!</h1>;
 
         // replace element content with component

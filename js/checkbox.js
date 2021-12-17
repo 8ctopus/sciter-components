@@ -1,19 +1,16 @@
 export class Checkbox extends Element
 {
-    constructor()
-    {
-        // call Element constructor
-        super();
-    }
-
     /**
      * Called when element is attached to the DOM tree
+     * @return void
      */
     componentDidMount()
     {
+        // get attributes
         const id    = this.attributes["id"] || "?";
         const label = this.attributes["label"] || "?";
 
+        // create component html
         // option 1 using one outermost element fragment
         let component = (
             <>
