@@ -52,7 +52,7 @@ When the component is attached to the DOM tree, `componentDidMount` is called. I
 
 ### methods
 
-The `Element` class contains the following methods.
+The `Element` class contains the following methods that are important for components:
 
 #### lifecycle
 
@@ -67,13 +67,59 @@ The `Element` class contains the following methods.
 - `requestPaint()`
 - `clear()`
 
+### events
+
+```
+["on eventname"](event) {}
+["on eventname at selector"](event, selectorElement) {}
+```
+
+where:
+
+- `on ` marks the function as event handler
+- eventname is a name of event – either standard HTML’s one like click, input, focus, … or custom event name
+- ` at ` - [optional] signifies that selector will follow. selector is CSS selector of child element inside this element. When event handler will be triggered selectorElement argument of the function will get reference to the matching child that generated the event.
+
+### styling
+
+Components can be styled using style sets.
+
+```css
+clock {
+    prototype: Clock url('clock.js');
+    style-set: clock;
+}
+
+@set clock {
+    :root {
+        ...
+    }
+
+    span {
+        ...
+    }
+}
+```
+
+`:root` stands for the clock element and `:root` is needed for styling the element itself and using other selectors on it like immediate children.
+
+The style set can also be assigned from the code
+
+```jsx
+const component = (
+    <div styleset={__DIR__ + "clock.css#clock"}>
+        <h2>{this.time.toLocaleTimeString()}</h2>
+    </div>
+);
+```
+
 ### JSX
 
 All components in this repo use JSX. JSX stands for JavaScript XML and it allows to write HTML code inside javascript.
 
 JSX was directly integrated in sciter's javascript engine, while browsers only support JSX by using the Babel compiler.
 
-### rules
+#### rules
 
 - A multi-line JSX expression must start on the same line as `=` or `return ` or should be wrapped in parentheses. (The reason of this lies in the famous "Automatic semicolon insertion": https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi)
 
@@ -170,52 +216,6 @@ More rules and examples can be found here
 
 - [Sciter Reactor JSX](https://sciter.com/tutorials/reactor-jsx/)
 - [Sciter JSX official documentation](https://github.com/c-smile/quickjspp/blob/master/doc/jsx.md)
-
-### events
-
-```
-["on eventname"](event) {}
-["on eventname at selector"](event, selectorElement) {}
-```
-
-where:
-
-- `on ` marks the function as event handler
-- eventname is a name of event – either standard HTML’s one like click, input, focus, … or custom event name
-- ` at ` - [optional] signifies that selector will follow. selector is CSS selector of child element inside this element. When event handler will be triggered selectorElement argument of the function will get reference to the matching child that generated the event.
-
-## styling
-
-Components can be styled with style sets.
-
-```css
-clock {
-    prototype: Clock url('clock.js');
-    style-set: clock;
-}
-
-@set clock {
-    :root {
-        ...
-    }
-
-    span {
-        ...
-    }
-}
-```
-
-`:root` stands for the clock element and `:root` is needed for styling the element itself and using other selectors on it like immediate children.
-
-The style set can also be assigned from the code
-
-```jsx
-const component = (
-    <div styleset={__DIR__ + "clock.css#clock"}>
-        <h2>{this.time.toLocaleTimeString()}</h2>
-    </div>
-);
-```
 
 ## Sublime Text 3 JSX support
 
