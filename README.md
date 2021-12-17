@@ -18,9 +18,9 @@ All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examp
 
 ## JSX
 
-The components in this demo use JSX. JSX stands for JavaScript XML and it allows to write HTML inside javascript.
+All components in this repo use JSX. JSX stands for JavaScript XML and it allows to write HTML code inside javascript.
 
-JSX was directly integrated in sciter's javascript engine, while browser javascript only support JSX by using the Babel compiler.
+JSX was directly integrated in sciter's javascript engine, while browsers only support JSX by using the Babel compiler.
 
 ### rules
 
