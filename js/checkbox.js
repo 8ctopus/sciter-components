@@ -28,6 +28,7 @@ export class Checkbox extends Element
             <label for={id}>{label}</label>
         ];
 
+        // replace element content with component
         this.content(component);
     }
 }
