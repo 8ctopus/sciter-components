@@ -226,7 +226,11 @@ Sublime Text 4 support JSX out of the box (just update syntax for all \*.js to u
 
 Sublime Text 3 plugin for JSX [https://packagecontrol.io/packages/Babel](https://packagecontrol.io/packages/Babel)
 
-## Code linting
+## code linting
+
+Code linting uses [eslint](https://github.com/eslint/eslint) and requires
+
+- node.js
 
 ```sh
 npm install

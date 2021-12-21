@@ -20,8 +20,9 @@
     "rules": {
         "indent": [
             "error",
-            4,
-            { "SwitchCase": 1 }
+            4, {
+                "SwitchCase": 1
+            }
         ],
         "linebreak-style": [
             "error",
@@ -42,23 +43,23 @@
             "warn",
             120
         ],
+        "new-cap": [
+            "error"
+        ],
+        "no-multi-spaces": [
+            "warn"
+        ],
         "brace-style": [
             "off"
         ],
         "curly": [
             "off"
         ],
-        "new-cap": [
-            "error"
-        ],
         "require-jsdoc": [
             "off"
         ],
         "valid-jsdoc": [
             "off"
-        ],
-        "no-multi-spaces": [
-            "warn"
         ],
         "spaced-comment": [
             "off"
