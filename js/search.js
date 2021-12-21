@@ -9,8 +9,8 @@ export class Search extends Element
         //console.debug(this.tag, "componentDidMount");
 
         const component = [
-            <input|text />,
-            <button .do>Search</button>
+            <input type="text" />,
+            <button class="do">Search</button>,
         ];
 
         // replace element content with component
@@ -25,7 +25,7 @@ export class Search extends Element
 
         // send search event
         this.post(new Event("do-search", {
-            data: this.$("input").value
+            data: this.$("input").value,
         }));
     }
 

@@ -20,8 +20,8 @@ export class Widget extends Element
         const component = (
             <>
                 <h1>{message}</h1>
-                <button .expand>+</button>
-                <button .collapse>-</button>
+                <button class="expand">+</button>
+                <button class="collapse">-</button>
             </>
         );
 

@@ -7,7 +7,7 @@ export class Checkbox extends Element
     componentDidMount()
     {
         // get attributes
-        const id    = this.attributes["id"] || "?";
+        const id = this.attributes["id"] || "?";
         const label = this.attributes["label"] || "?";
 
         // create component html
