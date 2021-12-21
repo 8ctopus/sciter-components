@@ -220,6 +220,16 @@ More rules and examples can be found here
 - [Sciter Reactor JSX](https://sciter.com/tutorials/reactor-jsx/)
 - [Sciter JSX official documentation](https://github.com/c-smile/quickjspp/blob/master/doc/jsx.md)
 
-## Sublime Text 3 JSX support
+## Sublime Text JSX support
 
-[https://packagecontrol.io/packages/Babel](https://packagecontrol.io/packages/Babel)
+Sublime Text 4 support JSX out of the box (just update syntax for all \*.js to use JSX)
+
+Sublime Text 3 plugin for JSX [https://packagecontrol.io/packages/Babel](https://packagecontrol.io/packages/Babel)
+
+## Code linting
+
+```sh
+npm install
+
+./node_modules/.bin/eslint js/*.js
+```
