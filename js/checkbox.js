@@ -22,7 +22,7 @@ export class Checkbox extends Element
         // option 2 using an array
         component = [
             <input type="checkbox" id={id} name={id} />,
-            <label for={id}>{label}</label>
+            <label for={id}>{label}</label>,
         ];
 
         // replace element content with component
