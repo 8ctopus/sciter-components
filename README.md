@@ -231,5 +231,5 @@ Sublime Text 3 plugin for JSX [https://packagecontrol.io/packages/Babel](https:/
 ```sh
 npm install
 
-./node_modules/.bin/eslint js/*.js
+./node_modules/.bin/eslint main.htm js/*.js
 ```
