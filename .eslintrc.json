@@ -58,6 +58,9 @@
         ],
         "no-multi-spaces": [
             "warn"
+        ],
+        "spaced-comment": [
+            "off"
         ]
     }
 }
