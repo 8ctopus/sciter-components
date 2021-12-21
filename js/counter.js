@@ -27,9 +27,9 @@ export class Counter extends Element
     render()
     {
         const component = <>
-                <button>click me</button>
-                clicked <span>{this.#counter}</span> times
-            </>;
+            <button>click me</button>
+            clicked <span>{this.#counter}</span> times
+        </>;
 
         /*
         does not work because the line must start and end with html tags!

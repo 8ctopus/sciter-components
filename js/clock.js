@@ -30,7 +30,7 @@ export class Clock extends Element
         // add timer to update component every second
         this.timer(1000, () => {
             this.componentUpdate({
-                time: new Date()
+                time: new Date(),
             });
 
             // to keep the timer ticking
@@ -48,15 +48,15 @@ export class Clock extends Element
             console.debug(this.tag, "render");
 
         // split time in its components
-        const [hours, minutes, seconds] = new Date().toLocaleTimeString("en-US").split(/:| /)
+        const [hours, minutes, seconds] = new Date().toLocaleTimeString("en-US").split(/:| /);
 
         // JSX
         const component = <>
-                <span>{hours}</span>
-                <span>{minutes}</span>
-                <span>{seconds}</span>
-                <button>DEL</button>
-            </>;
+            <span>{hours}</span>
+            <span>{minutes}</span>
+            <span>{seconds}</span>
+            <button>DEL</button>
+        </>;
 
         // set component inner html
         this.content(component);
