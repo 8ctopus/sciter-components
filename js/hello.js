@@ -2,7 +2,6 @@ export class Hello extends Element
 {
     /**
      * Called when element is attached to the DOM tree
-     * @return void
      */
     componentDidMount()
     {

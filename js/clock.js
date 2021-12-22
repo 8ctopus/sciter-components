@@ -12,7 +12,6 @@ export class Clock extends Element
 
     /**
      * Called when element is attached to the DOM tree
-     * @return void
      */
     componentDidMount()
     {
@@ -40,7 +39,6 @@ export class Clock extends Element
 
     /**
      * Render component
-     * @return void
      */
     render()
     {
@@ -64,8 +62,7 @@ export class Clock extends Element
 
     /**
      * Update component
-     * @param object props
-     * @return void
+     * @param {object} props
      */
     componentUpdate(props)
     {
@@ -84,7 +81,6 @@ export class Clock extends Element
 
     /**
      * Called when element is detached from the DOM tree
-     * @return void
      */
     componentWillUnmount()
     {

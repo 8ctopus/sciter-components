@@ -2,7 +2,6 @@ export class Search extends Element
 {
     /**
      * Called when element is attached to the DOM tree
-     * @return void
      */
     componentDidMount()
     {
@@ -19,6 +18,8 @@ export class Search extends Element
 
     /**
      * On button click
+     * @param {object} event
+     * @param {Element} button
      */
     ["on click at button.do"](event, button) {
         console.debug(this.tag, "button click");
@@ -31,6 +32,8 @@ export class Search extends Element
 
     /**
      * On text enter
+     * @param {object} event
+     * @param {Element} input
      */
     ["on change at input"](event, input) {
         console.debug(this.tag, this.val);
@@ -48,6 +51,7 @@ export class Search extends Element
 
     /**
      * Val property setter
+     * @param {string} value
      */
     set val(value)
     {

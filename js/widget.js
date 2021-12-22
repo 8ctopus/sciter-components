@@ -2,7 +2,6 @@ export class Widget extends Element
 {
     /**
      * Called when element is attached to the DOM tree
-     * @return void
      */
     componentDidMount()
     {
@@ -11,7 +10,6 @@ export class Widget extends Element
 
     /**
      * Render component
-     * @return void
      */
     render()
     {
@@ -31,6 +29,8 @@ export class Widget extends Element
 
     /**
      * On click expand button
+     * @param {object} event
+     * @param {Element} element
      */
     ["on click at button.expand"](event, element)
     {
@@ -41,6 +41,8 @@ export class Widget extends Element
 
     /**
      * On click collapse button
+     * @param {object} event
+     * @param {Element} element
      */
     ["on click at button.collapse"](event, element)
     {

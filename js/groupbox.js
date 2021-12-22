@@ -2,7 +2,6 @@ export class GroupBox extends Element
 {
     /**
      * Called when element is attached to the DOM tree
-     * @return void
      */
     componentDidMount()
     {
@@ -11,7 +10,6 @@ export class GroupBox extends Element
 
     /**
      * Render component
-     * @return void
      */
     render()
     {

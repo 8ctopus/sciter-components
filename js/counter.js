@@ -13,7 +13,6 @@ export class Counter extends Element
 
     /**
      * Called when element is attached to the DOM tree
-     * @return void
      */
     componentDidMount()
     {
@@ -22,7 +21,6 @@ export class Counter extends Element
 
     /**
      * Render component
-     * @return void
      */
     render()
     {
@@ -45,6 +43,8 @@ export class Counter extends Element
 
     /**
      * On button click event
+     * @param {object} event
+     * @param {Element} element
      */
     ["on click at button"](event, element)
     {
