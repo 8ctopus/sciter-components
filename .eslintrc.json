@@ -54,14 +54,27 @@
         "curly": [
             "off"
         ],
+        "spaced-comment": [
+            "off"
+        ],
+        "space-in-parens": [
+            "error",
+            "never"
+        ],
+        "camelcase": [
+            "error"
+        ],
+        "no-multiple-empty-lines": [
+            "error"
+        ],
+        "no-unused-private-class-members": [
+            "error"
+        ],
         "require-jsdoc": [
             "off"
         ],
         "valid-jsdoc": [
-            "off"
-        ],
-        "spaced-comment": [
-            "off"
+            "error"
         ]
     }
 }
