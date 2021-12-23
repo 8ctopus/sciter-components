@@ -56,6 +56,33 @@
             "error",
             "multi-or-nest"
         ],
+        "no-else-return": [
+            "error"
+        ],
+        "no-empty-function": [
+            "error"
+        ],
+        "no-lone-blocks": [
+            "error"
+        ],
+        "no-mixed-operators": [
+            "error"
+        ],
+        "block-spacing": [
+            "error"
+        ],
+        "eol-last": [
+            "error"
+        ],
+        "arrow-spacing": [
+            "error"
+        ],
+        "comma-spacing": [
+            "error"
+        ],
+        "space-before-blocks": [
+            "error"
+        ],
         "spaced-comment": [
             "off"
         ],
