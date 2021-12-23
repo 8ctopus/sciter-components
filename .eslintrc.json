@@ -53,7 +53,8 @@
             "stroustrup"
         ],
         "curly": [
-            "off"
+            "error",
+            "multi-or-nest"
         ],
         "spaced-comment": [
             "off"
