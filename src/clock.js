@@ -58,14 +58,14 @@ export class Clock extends Element {
 
     /**
      * Update component
-     * @param {object} props
+     * @param {object} properties
      */
-    componentUpdate(props) {
+    componentUpdate(properties) {
         if (this.#debug)
             console.debug(this.tag, "componentUpdate");
 
         // update time
-        this.#time = props.time;
+        this.#time = properties.time;
 
         // re-render component html
         //this.render();
@@ -82,7 +82,7 @@ export class Clock extends Element {
             console.debug(this.tag, "componentWillUnmount");
 
         // unset timer
-        this.timer(1000, null);
+        this.timer(1000);
     }
 
     /**

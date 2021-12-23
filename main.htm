@@ -149,11 +149,11 @@ document.on("ready", function() {
 
 /**
  * Unhandled exception handler
- * @param {Error|string} e
+ * @param {Error|string} exception
  */
-function unhandledExceptionHandler(e) {
+function unhandledExceptionHandler(exception) {
     // log exception using exception if it exists, error otherwise
-    typeof console.exception === "function" ? console.exception(e) : console.error(e);
+    typeof console.exception === "function" ? console.exception(exception) : console.error(exception);
 }
 
 </script>
