@@ -74,6 +74,9 @@
         "no-unused-private-class-members": [
             "error"
         ],
+        "no-template-curly-in-string": [
+            "error"
+        ],
         "require-jsdoc": [
             "off"
         ],
