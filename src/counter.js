@@ -1,10 +1,8 @@
-export class Counter extends Element
-{
+export class Counter extends Element {
     // private variable
     #counter;
 
-    constructor()
-    {
+    constructor() {
         // call Element constructor
         super();
 
@@ -14,16 +12,14 @@ export class Counter extends Element
     /**
      * Called when element is attached to the DOM tree
      */
-    componentDidMount()
-    {
+    componentDidMount() {
         this.render();
     }
 
     /**
      * Render component
      */
-    render()
-    {
+    render() {
         const component = <>
             <button>click me</button>
             clicked <span>{this.#counter}</span> times
@@ -46,8 +42,7 @@ export class Counter extends Element
      * @param {object} event
      * @param {Element} element
      */
-    ["on click at button"](event, element)
-    {
+    ["on click at button"](event, element) {
         ++this.#counter;
 
         this.render();

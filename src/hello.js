@@ -1,10 +1,8 @@
-export class Hello extends Element
-{
+export class Hello extends Element {
     /**
      * Called when element is attached to the DOM tree
      */
-    componentDidMount()
-    {
+    componentDidMount() {
         // get user attribute
         const user = this.attributes["user"] || "?";
 

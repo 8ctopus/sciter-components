@@ -1,10 +1,8 @@
-export class Search extends Element
-{
+export class Search extends Element {
     /**
      * Called when element is attached to the DOM tree
      */
-    componentDidMount()
-    {
+    componentDidMount() {
         //console.debug(this.tag, "componentDidMount");
 
         const component = [
@@ -44,8 +42,7 @@ export class Search extends Element
     /**
      * Val property getter
      */
-    get val()
-    {
+    get val() {
         return this.$("input").value;
     }
 
@@ -53,8 +50,7 @@ export class Search extends Element
      * Val property setter
      * @param {string} value
      */
-    set val(value)
-    {
+    set val(value) {
         this.$("input").value = value;
     }
 }

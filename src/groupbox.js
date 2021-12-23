@@ -1,18 +1,15 @@
-export class GroupBox extends Element
-{
+export class GroupBox extends Element {
     /**
      * Called when element is attached to the DOM tree
      */
-    componentDidMount()
-    {
+    componentDidMount() {
         this.render();
     }
 
     /**
      * Render component
      */
-    render()
-    {
+    render() {
         // get title attribute
         const title = this.attributes["title"] ?? "";
 

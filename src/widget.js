@@ -1,18 +1,15 @@
-export class Widget extends Element
-{
+export class Widget extends Element {
     /**
      * Called when element is attached to the DOM tree
      */
-    componentDidMount()
-    {
+    componentDidMount() {
         this.render();
     }
 
     /**
      * Render component
      */
-    render()
-    {
+    render() {
         const message = this.attributes["message"] || "?";
 
         const component = (
@@ -32,8 +29,7 @@ export class Widget extends Element
      * @param {object} event
      * @param {Element} element
      */
-    ["on click at button.expand"](event, element)
-    {
+    ["on click at button.expand"](event, element) {
         this.state.expanded = true;
 
         // no need to call render, it's called automatically
@@ -44,8 +40,7 @@ export class Widget extends Element
      * @param {object} event
      * @param {Element} element
      */
-    ["on click at button.collapse"](event, element)
-    {
+    ["on click at button.collapse"](event, element) {
         this.state.expanded = false;
 
         // no need to call render, it's called automatically

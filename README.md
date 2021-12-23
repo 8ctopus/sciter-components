@@ -235,5 +235,5 @@ Code linting uses [eslint](https://github.com/eslint/eslint) and requires
 ```sh
 npm install
 
-./node_modules/.bin/eslint main.htm js/*.js
+./node_modules/.bin/eslint main.htm src/*.js
 ```

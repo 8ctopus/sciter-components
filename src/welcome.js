@@ -3,10 +3,8 @@
  * https://github.com/c-smile/sciter-js-sdk/blob/main/docs/md/reactor/components.md#composing-components
  */
 
-export class WelcomeGroup extends Element
-{
-    componentDidMount()
-    {
+export class WelcomeGroup extends Element {
+    componentDidMount() {
         const group = [
             <welcome name="Ivan" />,
             <welcome name="Olga" />,
@@ -17,10 +15,8 @@ export class WelcomeGroup extends Element
     }
 }
 
-export class Welcome extends Element
-{
-    componentDidMount()
-    {
+export class Welcome extends Element {
+    componentDidMount() {
         // get name attribute
         const name = this.attributes["name"] ?? "";
 

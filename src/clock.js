@@ -1,11 +1,9 @@
-export class Clock extends Element
-{
+export class Clock extends Element {
     // private variables
     #time;
     #debug;
 
-    constructor()
-    {
+    constructor() {
         // call Element constructor
         super();
     }
@@ -13,8 +11,7 @@ export class Clock extends Element
     /**
      * Called when element is attached to the DOM tree
      */
-    componentDidMount()
-    {
+    componentDidMount() {
         this.#debug = this.hasAttribute("debug");
 
         if (this.#debug)
@@ -40,8 +37,7 @@ export class Clock extends Element
     /**
      * Render component
      */
-    render()
-    {
+    render() {
         if (this.#debug)
             console.debug(this.tag, "render");
 
@@ -64,8 +60,7 @@ export class Clock extends Element
      * Update component
      * @param {object} props
      */
-    componentUpdate(props)
-    {
+    componentUpdate(props) {
         if (this.#debug)
             console.debug(this.tag, "componentUpdate");
 
@@ -82,8 +77,7 @@ export class Clock extends Element
     /**
      * Called when element is detached from the DOM tree
      */
-    componentWillUnmount()
-    {
+    componentWillUnmount() {
         if (this.#debug)
             console.debug(this.tag, "componentWillUnmount");
 
@@ -94,8 +88,7 @@ export class Clock extends Element
     /**
      * On button click
      */
-    ["on click at button"]()
-    {
+    ["on click at button"]() {
         this.remove();
     }
 }
