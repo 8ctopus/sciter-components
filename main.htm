@@ -149,10 +149,9 @@ document.on("ready", function() {
 
 /**
  * Unhandled exception handler
- * @param  Error|String e
+ * @param {Error|String} e
  */
-function unhandledExceptionHandler(e)
-{
+function unhandledExceptionHandler(e) {
     // log exception using exception if it exists, error otherwise
     typeof console.exception === "function" ? console.exception(e) : console.error(e);
 }
