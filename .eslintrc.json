@@ -36,19 +36,13 @@
             "error",
             "always"
         ],
-        "no-unused-vars": [
-            "warn"
-        ],
+        "no-unused-vars": "warn",
         "max-len": [
             "warn",
             120
         ],
-        "new-cap": [
-            "error"
-        ],
-        "no-multi-spaces": [
-            "warn"
-        ],
+        "new-cap": "error",
+        "no-multi-spaces": "warn",
         "brace-style": [
             "error",
             "stroustrup"
@@ -57,61 +51,27 @@
             "error",
             "multi-or-nest"
         ],
-        "no-else-return": [
-            "error"
-        ],
-        "no-empty-function": [
-            "error"
-        ],
-        "no-lone-blocks": [
-            "error"
-        ],
-        "no-mixed-operators": [
-            "error"
-        ],
-        "block-spacing": [
-            "error"
-        ],
-        "eol-last": [
-            "error"
-        ],
-        "arrow-spacing": [
-            "error"
-        ],
-        "comma-spacing": [
-            "error"
-        ],
-        "space-before-blocks": [
-            "error"
-        ],
-        "spaced-comment": [
-            "off"
-        ],
-        "no-inline-comments": [
-            "error"
-        ],
+        "no-else-return": "error",
+        "no-empty-function": "error",
+        "no-lone-blocks": "error",
+        "no-mixed-operators": "error",
+        "block-spacing": "error",
+        "eol-last": "error",
+        "arrow-spacing": "error",
+        "comma-spacing": "error",
+        "space-before-blocks": "error",
+        "spaced-comment": "off",
+        "no-inline-comments": "error",
         "space-in-parens": [
             "error",
             "never"
         ],
-        "camelcase": [
-            "error"
-        ],
-        "no-multiple-empty-lines": [
-            "error"
-        ],
-        "no-unused-private-class-members": [
-            "error"
-        ],
-        "no-template-curly-in-string": [
-            "error"
-        ],
-        "require-jsdoc": [
-            "off"
-        ],
-        "valid-jsdoc": [
-            "off"
-        ],
+        "camelcase": "error",
+        "no-multiple-empty-lines": "error",
+        "no-unused-private-class-members": "error",
+        "no-template-curly-in-string": "error",
+        "require-jsdoc": "off",
+        "valid-jsdoc": "off",
         "jsdoc/check-access": 1, // Recommended
         "jsdoc/check-alignment": 1, // Recommended
         "jsdoc/check-examples": 0,
