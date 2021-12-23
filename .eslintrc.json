@@ -57,6 +57,9 @@
         "spaced-comment": [
             "off"
         ],
+        "no-inline-comments": [
+            "error"
+        ],
         "space-in-parens": [
             "error",
             "never"
