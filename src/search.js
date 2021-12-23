@@ -41,6 +41,7 @@ export class Search extends Element {
 
     /**
      * Val property getter
+     * @returns {string}
      */
     get val() {
         return this.$("input").value;
