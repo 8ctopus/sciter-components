@@ -3,7 +3,8 @@
     "eslint": "^8.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-html": "^6.2.0",
-    "eslint-plugin-jsdoc": "^37.4.0"
+    "eslint-plugin-jsdoc": "^37.4.0",
+    "eslint-plugin-unicorn": "^39.0.0"
   },
   "dependencies": {
     "package.json": "^2.0.1"
