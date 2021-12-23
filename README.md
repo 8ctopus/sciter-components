@@ -228,12 +228,17 @@ Sublime Text 3 plugin for JSX [https://packagecontrol.io/packages/Babel](https:/
 
 ## code linting
 
-Code linting uses [eslint](https://github.com/eslint/eslint) and requires
+Javascript code linting uses [eslint](https://github.com/eslint/eslint)
+HTML code linting uses [HTMLLint](https://htmlhint.com/)
 
-- node.js
+Both require Node.js
 
 ```sh
 npm install
 
+# lint javascript
 ./node_modules/.bin/eslint main.htm src/*.js
+
+# lint html
+./node_modules/.bin/htmllint main.htm
 ```
