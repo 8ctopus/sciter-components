@@ -25,7 +25,7 @@ Here's the simplest example of a component
 
 ```css
 hello {
-    prototype: HelloWorld url("js/helloworld.js");
+    prototype: HelloWorld url("src/helloworld.js");
     display: block;
 }
 ```
