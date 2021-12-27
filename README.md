@@ -237,8 +237,8 @@ Both require Node.js
 npm install
 
 # lint javascript
-./node_modules/.bin/eslint main.htm src/*.js
+npx eslint main.htm src/*.js
 
 # lint html
-./node_modules/.bin/htmllint main.htm
+npx htmlhint main.htm
 ```
