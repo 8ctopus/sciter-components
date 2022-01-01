@@ -97,6 +97,7 @@ pagecontrol div#tabsheet-4 {
 
 import {logger} from "vendor/8ctopus/sciter-logger/src/logger.js";
 import * as utils from "vendor/8ctopus/sciter-utils/src/utils.js";
+import Simplest from "src/simplest.js";
 
 // initialize logger
 logger.init();
@@ -129,6 +130,9 @@ document.on("ready", function() {
     // bring window to front and set input focus
     Window.this.activate(true);
 
+    // add simplest component to interface
+    document.$("div#simplest").content(<Simplest name="8ctopus" />);
+
     const pagecontrol = document.$("pagecontrol");
 
     document.on("click", "button#previous", function() {
@@ -159,6 +163,8 @@ function unhandledExceptionHandler(exception) {
 </script>
 </head>
 <body>
+    <div #simplest />
+
     <hello user="8ctopus" />
 
     <checkbox id="left" label="checkbox label" />

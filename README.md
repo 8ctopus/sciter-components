@@ -1,8 +1,6 @@
 # sciter components
 
-This project is an introduction to [sciter.js](https://sciter.com/) components.
-
-It explores how to build components using `Reactor` which is Sciter's equivalent to [ReactJS](https://reactjs.org/).
+This project is an introduction to [sciter.js](https://sciter.com/) components. It explores how to build components using `Reactor` which is Sciter's equivalent to [ReactJS](https://reactjs.org/). Having experience with ReactJS is not required, but greatly helps in understanding sciter components.
 
 All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examples found on the sciter website and documentation. The pagecontrol development was moved [here](https://github.com/8ctopus/sciter-pagecontrol).
 
@@ -18,10 +16,29 @@ All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examp
 
 ## Components
 
-### basics
+### function components
 
-Components all extend on the `Element` class. Components are javascript modules therefore they uses strict js syntax.
-Here's the simplest example of a component
+The simplest component is just a function that returns a virtual node.
+
+```js
+function HelloWorld(attributes) {
+    return <h2>hello {attributes.name}!</h2>;
+};
+
+// add component to body
+document.body.content(<HelloWorld />);
+```
+
+Passed function arguments are:
+
+```js
+function HelloWorld(attributes, children [, parent])
+```
+
+### class components
+
+Components can also extend on the `Element` class. Components are javascript modules therefore they uses strict js syntax.
+Here's the simplest example of a component:
 
 ```css
 hello {
@@ -31,11 +48,15 @@ hello {
 ```
 
 ```js
-export class HelloWorld extends Element
-{
+export class HelloWorld extends Element {
+    constructor(props, children [, parent]) {
+        // call class parent constructor
+        super();
+        ...
+    }
+
     /// Called when element is attached to the DOM tree
-    componentDidMount()
-    {
+    componentDidMount() {
         // create html JSX
         const html = <h1>Hello World!</h1>;
 
