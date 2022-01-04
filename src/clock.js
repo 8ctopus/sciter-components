@@ -2,10 +2,13 @@ export class Clock extends Element {
     // private variables
     #time;
     #debug;
+    #stop;
 
     constructor() {
         // call Element constructor
         super();
+
+        this.#stop = false;
     }
 
     /**
@@ -29,8 +32,8 @@ export class Clock extends Element {
                 time: new Date(),
             });
 
-            // to keep the timer ticking
-            return true;
+            // true to keep the timer ticking
+            return !this.#stop;
         });
     }
 
@@ -89,6 +92,6 @@ export class Clock extends Element {
      * On button click
      */
     ["on click at button"]() {
-        this.remove();
+        this.#stop = true;
     }
 }
