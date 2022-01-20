@@ -4,15 +4,20 @@ This project is an introduction to [sciter.js](https://sciter.com/) components. 
 
 All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examples found on the sciter website and documentation. The pagecontrol development was moved [here](https://github.com/8ctopus/sciter-pagecontrol).
 
-![sciter components](screenshot.png)
+![sciter components](https://github.com/8ctopus/sciter-components/raw/master/screenshot.png)
 
 ## demo
 
 - git clone the repository
-- on Linux/Mac `chmod +x install.sh start.sh`
-- run `install.bat` (Win) or `./install.sh` (Linux/Mac) to download the latest sciter binaries and the sciter package manager
-- install packages `php bin/spm.phar install`
-- run `start.bat` (Win) or `./start.sh` (Linux/Mac)
+- install packages `npm install`
+- install latest sciter sdk `npm run install-sdk`
+- start the demo `npm run scapp`
+
+## demo requirements
+
+- A recent version of Node.js `node` (tested with 16 LTS) and its package manager `npm`.
+    - On Windows [download](https://nodejs.dev/download/) and run the installer
+    - On Linux check the [installation guide](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04#option-2-%E2%80%94-installing-node-js-with-apt-using-a-nodesource-ppa)
 
 ## Components
 
