@@ -1,6 +1,6 @@
 /bin/
-/vendor/
 /node_modules/
 
 /*.sublime-workspace
+
 /*.log

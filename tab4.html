@@ -22,7 +22,7 @@ export function initTab(tab, pagecontrol)
 
     // handle button click event
     tab.on("click", "button#hello", function() {
-        console.log(`${tab.id} button clicked!`);
+        console.debug(`${tab.id} button clicked!`);
     });
 
     // handle show tab event
@@ -32,7 +32,7 @@ export function initTab(tab, pagecontrol)
             return;
 
         // do something when tab is shown
-        console.log(`${tab.id} shown`);
+        console.debug(`${tab.id} shown`);
     });
 }
 
