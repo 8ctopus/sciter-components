@@ -52,7 +52,7 @@ export class Clock extends Element {
             <span>{hours}</span>
             <span>{minutes}</span>
             <span>{seconds}</span>
-            <button>DEL</button>
+            <button>Stop update</button>
         </>;
 
         // set component inner html
