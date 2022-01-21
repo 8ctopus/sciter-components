@@ -16,8 +16,8 @@ export class Search extends Element {
 
     /**
      * On button click
-     * @param {object} event
-     * @param {Element} button
+     * @param {object} _event
+     * @param {Element} _button
      */
     ["on click at button.do"](_event, _button) {
         console.debug(this.tag, "button click");
@@ -30,8 +30,8 @@ export class Search extends Element {
 
     /**
      * On text enter
-     * @param {object} event
-     * @param {Element} input
+     * @param {object} _event
+     * @param {Element} _input
      */
     ["on change at input"](_event, _input) {
         console.debug(this.tag, this.val);

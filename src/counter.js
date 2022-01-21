@@ -39,8 +39,8 @@ export class Counter extends Element {
 
     /**
      * On button click event
-     * @param {object} event
-     * @param {Element} element
+     * @param {object} _event
+     * @param {Element} _element
      */
     ["on click at button"](_event, _element) {
         ++this.#counter;

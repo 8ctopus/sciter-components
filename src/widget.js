@@ -26,8 +26,8 @@ export class Widget extends Element {
 
     /**
      * On click expand button
-     * @param {object} event
-     * @param {Element} element
+     * @param {object} _event
+     * @param {Element} _element
      */
     ["on click at button.expand"](_event, _element) {
         this.state.expanded = true;
@@ -37,8 +37,8 @@ export class Widget extends Element {
 
     /**
      * On click collapse button
-     * @param {object} event
-     * @param {Element} element
+     * @param {object} _event
+     * @param {Element} _element
      */
     ["on click at button.collapse"](_event, _element) {
         this.state.expanded = false;
