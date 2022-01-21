@@ -10,7 +10,7 @@ export class Widget extends Element {
      * Render component
      */
     render() {
-        const message = this.attributes["message"] || "?";
+        const message = this.attributes.message || "?";
 
         const component = (
             <>
@@ -29,7 +29,7 @@ export class Widget extends Element {
      * @param {object} event
      * @param {Element} element
      */
-    ["on click at button.expand"](event, element) {
+    ["on click at button.expand"](_event, _element) {
         this.state.expanded = true;
 
         // no need to call render, it's called automatically
@@ -40,7 +40,7 @@ export class Widget extends Element {
      * @param {object} event
      * @param {Element} element
      */
-    ["on click at button.collapse"](event, element) {
+    ["on click at button.collapse"](_event, _element) {
         this.state.expanded = false;
 
         // no need to call render, it's called automatically

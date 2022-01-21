@@ -108,7 +108,7 @@ Logger.attach();
 // capture unhandled exceptions
 Logger.capture();
 
-document.on("ready", function() {
+document.on("ready", () => {
     // subscribe to logger messages
     Logger.plaintext(document.$("plaintext#logger"));
 
@@ -132,15 +132,15 @@ document.on("ready", function() {
 
     const pagecontrol = document.$("pagecontrol");
 
-    document.on("click", "button#previous", function() {
+    document.on("click", "button#previous", () => {
         pagecontrol.previousTab();
     });
 
-    document.on("click", "button#next", function() {
+    document.on("click", "button#next", () => {
         pagecontrol.nextTab();
     });
 
-    document.on("click", "button#toggle", function() {
+    document.on("click", "button#toggle", () => {
         // show, hide pagecontrol header
         pagecontrol.toggleHeaders();
     });

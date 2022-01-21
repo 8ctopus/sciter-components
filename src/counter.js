@@ -42,7 +42,7 @@ export class Counter extends Element {
      * @param {object} event
      * @param {Element} element
      */
-    ["on click at button"](event, element) {
+    ["on click at button"](_event, _element) {
         ++this.#counter;
 
         this.render();

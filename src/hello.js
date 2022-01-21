@@ -4,7 +4,7 @@ export class Hello extends Element {
      */
     componentDidMount() {
         // get user attribute
-        const user = this.attributes["user"] || "?";
+        const user = this.attributes.user || "?";
 
         // create component html
         const component = <h1>Hello {user}!</h1>;

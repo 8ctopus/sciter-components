@@ -18,7 +18,7 @@ export class WelcomeGroup extends Element {
 export class Welcome extends Element {
     componentDidMount() {
         // get name attribute
-        const name = this.attributes["name"] ?? "";
+        const name = this.attributes.name ?? "";
 
         const welcome = <p>Hello, {name}!</p>;
 

@@ -4,8 +4,8 @@ export class Checkbox extends Element {
      */
     componentDidMount() {
         // get attributes
-        const id = this.attributes["id"] || "?";
-        const label = this.attributes["label"] || "?";
+        const id = this.attributes.id || "?";
+        const label = this.attributes.label || "?";
 
         // create component html
         // option 1 using one outermost element fragment

@@ -11,7 +11,7 @@ export class GroupBox extends Element {
      */
     render() {
         // get title attribute
-        const title = this.attributes["title"] ?? "";
+        const title = this.attributes.title ?? "";
 
         const html = `<legend>${title}</legend>` + this.innerHTML;
 

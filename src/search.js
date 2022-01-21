@@ -19,7 +19,7 @@ export class Search extends Element {
      * @param {object} event
      * @param {Element} button
      */
-    ["on click at button.do"](event, button) {
+    ["on click at button.do"](_event, _button) {
         console.debug(this.tag, "button click");
 
         // send search event
@@ -33,7 +33,7 @@ export class Search extends Element {
      * @param {object} event
      * @param {Element} input
      */
-    ["on change at input"](event, input) {
+    ["on change at input"](_event, _input) {
         console.debug(this.tag, this.val);
 
         //this.showSuggestionsFor(input.value);
