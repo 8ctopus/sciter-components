@@ -255,5 +255,5 @@ Sublime Text 3 plugin for JSX [https://packagecontrol.io/packages/Babel](https:/
 ## code linting
 
 ```sh
-npx xo
+npx xo (--fix)
 ```
