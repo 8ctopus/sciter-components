@@ -120,6 +120,7 @@
         "no-template-curly-in-string": "error",
         "no-unused-private-class-members": "off",
         "no-unused-vars": "warn",
+        "no-useless-computed-key": "error",
         "prefer-arrow-callback": "off",
         "quotes": [
             "error",
