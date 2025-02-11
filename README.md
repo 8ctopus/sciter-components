@@ -2,7 +2,7 @@
 
 This project is an introduction to [sciter.js](https://sciter.com/) components. It explores how to build components using `Reactor` which is Sciter's equivalent to [ReactJS](https://reactjs.org/). Having experience with ReactJS is not required, but greatly helps in understanding sciter components.
 
-All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examples found on the sciter website and documentation. The pagecontrol development was moved [here](https://github.com/8ctopus/sciter-pagecontrol).
+All controls except the `checkbox` and `groupbox` come from examples found on the sciter website and documentation.
 
 ![sciter components](https://github.com/8ctopus/sciter-components/raw/master/screenshot.png)
 
@@ -13,13 +13,13 @@ All controls except the `checkbox`, `groupbox` and `pagecontrol` come from examp
 - install latest sciter sdk `npm run install-sdk`
 - start the demo `npm run scapp`
 
-## demo requirements
+### demo requirements
 
 - A recent version of Node.js `node` (tested with 22 LTS) and its package manager `npm`.
     - On Windows [download](https://nodejs.dev/download/) and run the installer
     - On Linux check the [installation guide](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04#option-2-%E2%80%94-installing-node-js-with-apt-using-a-nodesource-ppa)
 
-## Components
+## components
 
 ### function components
 
