@@ -1,3 +1,5 @@
+import Logger from "../node_modules/sciter-logger/src/logger.js";
+
 export class Clock extends Element {
     // private variables
     #time;
@@ -5,6 +7,9 @@ export class Clock extends Element {
     #stop;
 
     constructor() {
+        // get console from parent
+        Logger.setConsole();
+
         // call Element constructor
         super();
 
