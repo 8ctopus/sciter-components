@@ -1,6 +1,6 @@
 {
   "name": "sciter-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This project is an introduction to [sciter.js](https://sciter.com/) components. It explores how to build components using `Reactor` which is Sciter's equivalent to [ReactJS](https://reactjs.org/). Having experience with ReactJS is not required, but greatly helps in understanding sciter components.",
   "scripts": {
     "install-sdk": "node ./node_modules/sciter-sandbox/scripts/install.mjs cleanup",
