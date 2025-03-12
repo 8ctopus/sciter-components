@@ -1,6 +1,7 @@
 /**
  * Component composing example
- * https://github.com/c-smile/sciter-js-sdk/blob/main/docs/md/reactor/components.md#composing-components
+ *
+ * https://gitlab.com/sciter-engine/sciter-js-sdk/-/blob/main/docs/md/reactor/component.md?ref_type=heads#composing-components
  */
 
 export class WelcomeGroup extends Element {
@@ -18,7 +19,7 @@ export class WelcomeGroup extends Element {
 export class Welcome extends Element {
     componentDidMount() {
         // get name attribute
-        const name = this.attributes.name ?? "";
+        const name = this.attributes.name ?? "anonymous";
 
         const welcome = <p>Hello, {name}!</p>;
 
