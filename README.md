@@ -42,8 +42,10 @@ function HelloWorld(attributes, children [, parent])
 
 ### class components
 
-Components can also extend on the `Element` class. Components are javascript modules therefore they uses strict js syntax.
-Here's the simplest example of a component:
+Components can also extend on the `Element` class. Components are javascript modules therefore they use strict js syntax.
+Here's the simplest example of such a component:
+
+`index.css`
 
 ```css
 hello {
@@ -52,28 +54,28 @@ hello {
 }
 ```
 
+`src/helloworld.js`
+
 ```js
 export class HelloWorld extends Element {
     constructor(props, children [, parent]) {
-        // call class parent constructor
+        // parent constructor
         super();
         ...
     }
 
     /// Called when element is attached to the DOM tree
     componentDidMount() {
-        // create html JSX
         const html = <h1>Hello World!</h1>;
 
-        // set element inner content
         this.content(html);
     }
 }
 ```
 
-When the component is attached to the DOM tree, `componentDidMount()` is called. Inside it, the inner HTML is created using JSX (see below) and finally added to the DOM tree using `content()`.
+When the component is attached to the DOM tree, `componentDidMount()` is called. Inside it, the inner HTML is created using JSX and finally added to the DOM tree using `content()`.
 
-More info here: [https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
+Reference: [https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/](https://sciter.com/tutorial-learn-sciters-html-components-in-5-minutes/)
 
 ### key methods
 
@@ -83,13 +85,13 @@ The following methods are important for components:
 
 - `render()` - method that calls content() internally
   - `content(vnode)` - set element content (innerHTML)
-  - `element.patch(vnode[, onlyChildren:true])` - alternative to `content()` patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
+  - `element.patch(vnode, [onlyChildren:true])` - alternative to `content()` patches content of the element by vnode using rules of React[or]. If second parameter is true, the function patches only children but not the element itself.
 
-- `componentUpdate(props)` - patch properties and enqueue rendering (calls element.render() method)
+- `componentUpdate(props)` - patch properties and enqueue rendering (calls Element.`render()` method)
 
-- `componentWillUnmount()` - called once immediately before element removal from the DOM tree
+- `componentWillUnmount()` - called once immediately before Element removal from the DOM tree
 
-Note: `componentDidMount()`, `render()`, `componentWillUnmount()` do not exist in the `Element` class, only in the derived class.
+_Note_: `componentDidMount`, `render`, `componentWillUnmount` do not exist in the `Element` class, only in the derived class.
 
 ### more methods
 
@@ -105,9 +107,9 @@ Note: `componentDidMount()`, `render()`, `componentWillUnmount()` do not exist i
 
 where:
 
-- `on ` marks the function as event handler
-- eventname is a name of event – either standard HTML’s one like click, input, focus, … or custom event name
-- ` at ` - [optional] signifies that selector will follow. selector is CSS selector of child element inside this element. When event handler will be triggered selectorElement argument of the function will get reference to the matching child that generated the event.
+- `on` marks the function as event handler
+- `eventname` is the name of event – either a standard HTML one like `click`, `input`, `focus`, … or a custom event name
+- `at` signifies that a selector will follow. The selector is the CSS selector of the child element inside this element. When event handler will be called, the `selectorElement` argument will  reference the matching child that generated the event.
 
 ### styling
 
@@ -144,13 +146,13 @@ const component = (
 
 ### JSX
 
-All components in this repo use JSX. JSX stands for JavaScript XML and it allows to write HTML code inside javascript.
+All components in this repo use `JSX`. JSX stands for JavaScript XML and it allows to write HTML code inside javascript.
 
-JSX was directly integrated in sciter's javascript engine, while browsers only support JSX by using the Babel compiler.
+JSX was directly integrated in sciter's javascript engine, while browsers only support JSX by using the `Babel` compiler.
 
 #### rules
 
-- A multi-line JSX expression must start on the same line as `=` or `return ` or should be wrapped in parentheses. (The reason of this lies in the famous "Automatic semicolon insertion": https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi)
+- A multi-line JSX expression must start on the same line as `=` or `return` or should be wrapped in parentheses. (The reason of this lies in the famous "Automatic semicolon insertion": https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi)
 
 ```jsx
 const component = <p>
@@ -167,7 +169,7 @@ const component = (
 - A JSX expression must have exactly one outermost element, or use an array, or use a fragment.
 
 ```jsx
-// doesn't work
+// doesn't work as there are two outermost elements
 const component = (
     <p> first paragraph </p>
     <p> second paragraph </p>
@@ -194,7 +196,7 @@ const component = <>
 </>;
 ```
 
-- JSX does not support “tail-less” HTML tags like: `<img>`, `<input>` or `<br>`, close them with ` />`
+- JSX does not support “tail-less” HTML tags like: `<img>`, `<input>` or `<br>`, and you must close them with ` />`
 
 ```jsx
 // doesn't work
@@ -204,7 +206,7 @@ const component = <>
 <input type="checkbox" />
 ```
 
-- variables inside JSX expressions must be enclosed in `{ }`
+- variables inside JSX expressions must be enclosed in `{}`
 - JSX doesn't support variable interpolation inside an attribute value
 
 ```jsx
@@ -248,12 +250,6 @@ More rules and examples can be found here
 
 ## Sublime Text JSX support
 
-Sublime Text 4 support JSX out of the box (just update syntax for all \*.js to use JSX)
+Sublime Text 4 supports JSX out of the box (just update syntax for all .js files to use JSX)
 
-Sublime Text 3 plugin for JSX [https://packagecontrol.io/packages/Babel](https://packagecontrol.io/packages/Babel)
-
-## code linting
-
-```sh
-npx xo (--fix)
-```
+Sublime Text 3 plugin to support JSX [https://packagecontrol.io/packages/Babel](https://packagecontrol.io/packages/Babel)
