@@ -14,6 +14,7 @@ export class Clock extends Element {
         super();
 
         this.#stop = false;
+        this.#time = new Date();
     }
 
     /**
@@ -46,12 +47,8 @@ export class Clock extends Element {
         if (this.#debug)
             console.debug(this.tag, "render");
 
-        if (this.#stop) {
-            return;
-        }
-
         // split time in its components
-        const [hours, minutes, seconds] = new Date().toLocaleTimeString("en-US").split(/:| /);
+        const [hours, minutes, seconds] = this.#time.toLocaleTimeString("en-US").split(/:| /);
 
         // JSX
         const component = <>
@@ -74,8 +71,10 @@ export class Clock extends Element {
         if (this.#debug)
             console.debug(this.tag, "componentUpdate");
 
-        // update time
-        this.#time = properties.time;
+        if (!this.#stop) {
+            // update time
+            this.#time = properties.time;
+        }
 
         // re-render component html
         //this.render();
