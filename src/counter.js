@@ -21,7 +21,8 @@ export class Counter extends Element {
      */
     render() {
         const component = <>
-            <button>click me</button>
+            <button #increment>+</button>
+            <button #decrement>-</button>
             clicked <span>{this.#counter}</span> times
         </>;
 
@@ -38,12 +39,13 @@ export class Counter extends Element {
     }
 
     /**
-     * On button click event
-     * @param {object} _event
-     * @param {Element} _element
+     * On button click
+     *
+     * @param {Event} _event
+     * @param {Element} element
      */
-    ["on click at button"](_event, _element) {
-        ++this.#counter;
+    ["on click at button"](_event, element) {
+        element.id === "increment" ? ++this.#counter : --this.#counter;
 
         this.render();
     }
