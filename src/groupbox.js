@@ -10,16 +10,12 @@ export class GroupBox extends Element {
      * Render component
      */
     render() {
-        // get title attribute
-        const title = this.attributes.title ?? "";
+        const title = this.attributes.title ?? "default title";
 
         const html = `<legend>${title}</legend>` + this.innerHTML;
 
-        // create groupbox
-        //const groupbox = <fieldset styleset={__DIR__ + "groupbox.css#groupbox"} state-html={html} />;
         const groupbox = <fieldset state-html={html} />;
 
-        // replace element content with component
         this.content(groupbox);
     }
 }
