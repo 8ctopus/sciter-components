@@ -257,6 +257,7 @@ JSX(tagName, {id: "hw"}, ["Hello, world!"]);
 
 More rules and examples can be found here
 
+- [Sciter components doc](https://gitlab.com/sciter-engine/sciter-js-sdk/-/blob/main/docs/md/reactor/component.md)
 - [Sciter Reactor JSX](https://sciter.com/tutorials/reactor-jsx/)
 - [Sciter JSX official documentation](https://github.com/c-smile/quickjspp/blob/master/doc/jsx.md)
 
