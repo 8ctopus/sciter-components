@@ -206,6 +206,18 @@ const component = <>
 <input type="checkbox" />
 ```
 
+- JSX elements inside an array must all be valid React elements, they must be enclosed within an HTML tag or a React fragment.
+
+```jsx
+// doesn't work
+const component = [
+    <button>click me</button>,
+    button clicked <span>{this.counter}</span> times
+];
+```
+
+_NOTE_: The issue here is that the second array item, button clicked <span>{this.counter}</span> times, contains raw text outside of JSX tags.
+
 - variables inside JSX expressions must be enclosed in `{}`
 - JSX doesn't support variable interpolation inside an attribute value
 
