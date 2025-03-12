@@ -25,9 +25,6 @@ export class Clock extends Element {
         if (this.#debug)
             console.debug(this.tag, "componentDidMount");
 
-        // set time
-        this.#time = new Date();
-
         // render component
         this.render();
 
@@ -38,7 +35,7 @@ export class Clock extends Element {
             });
 
             // true to keep the timer ticking
-            return !this.#stop;
+            return true;
         });
     }
 
@@ -49,6 +46,10 @@ export class Clock extends Element {
         if (this.#debug)
             console.debug(this.tag, "render");
 
+        if (this.#stop) {
+            return;
+        }
+
         // split time in its components
         const [hours, minutes, seconds] = new Date().toLocaleTimeString("en-US").split(/:| /);
 
@@ -57,7 +58,7 @@ export class Clock extends Element {
             <span>{hours}</span>
             <span>{minutes}</span>
             <span>{seconds}</span>
-            <button>Stop update</button>
+            <button>pause/resume</button>
         </>;
 
         // set component inner html
@@ -66,6 +67,7 @@ export class Clock extends Element {
 
     /**
      * Update component
+     *
      * @param {object} properties
      */
     componentUpdate(properties) {
@@ -95,8 +97,11 @@ export class Clock extends Element {
 
     /**
      * On button click
+     *
+     * @param {Event} _event
+     * @param {Element} element
      */
-    ["on click at button"]() {
-        this.#stop = true;
+    ["on click at button"](_event, _element) {
+        this.#stop = !this.#stop;
     }
 }
